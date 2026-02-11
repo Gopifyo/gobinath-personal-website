@@ -11,14 +11,14 @@ interface MessageBubbleProps {
 const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   const isUser = message.role === 'user';
   const [imgError, setImgError] = useState(false);
-  
+
   return (
     <div className={`
       w-full group
       ${isUser ? 'py-10' : 'py-6'}
     `}>
       <div className="text-lg gap-6 md:gap-8 md:max-w-4xl lg:max-w-[46rem] xl:max-w-[56rem] flex lg:px-0 m-auto">
-        
+
         {/* Avatar */}
         <div className="w-[42px] flex flex-col relative items-end shrink-0">
           <div className={`
@@ -29,16 +29,16 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
               <User size={22} className="text-zinc-400" />
             ) : (
               !imgError ? (
-                  <img 
-                    src={PROFILE_IMAGE} 
-                    alt="Agent" 
-                    className="w-full h-full object-cover"
-                    onError={() => setImgError(true)}
-                  />
+                <img
+                  src={PROFILE_IMAGE}
+                  alt="Agent"
+                  className="w-full h-full object-cover"
+                  onError={() => setImgError(true)}
+                />
               ) : (
-                  <div className="w-8 h-8">
-                    <BioDigitalCore />
-                  </div>
+                <div className="w-8 h-8">
+                  <BioDigitalCore />
+                </div>
               )
             )}
           </div>
@@ -46,44 +46,44 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
 
         {/* Content */}
         <div className="relative flex-1 overflow-hidden min-w-0">
-           {/* Message Container */}
-           <div className={`
+          {/* Message Container */}
+          <div className={`
              ${isUser ? 'glass-card bg-zinc-800/50 rounded-3xl p-6 md:px-8 md:py-6 inline-block border-white/5' : ''}
            `}>
-             {/* Text Content */}
-             {message.text && (
-               <div className={`
+            {/* Text Content */}
+            {message.text && (
+              <div className={`
                  prose prose-lg prose-p:leading-relaxed max-w-none whitespace-pre-wrap font-light
                  ${isUser ? 'text-zinc-200' : 'text-zinc-300'}
                  prose-strong:text-white prose-strong:font-bold
                `}>
-                 {message.text}
-               </div>
-             )}
-           </div>
+                {message.text}
+              </div>
+            )}
+          </div>
 
-           {/* Dynamic Component Content */}
-           {!isUser && (
-             <div className="mt-8">
-                {message.component === 'About' && <AboutSection />}
-                {message.component === 'Projects' && <ProjectsSection />}
-                {message.component === 'Patents' && <PatentsSection />}
-                {message.component === 'Experience' && <ExperienceSection />}
-                {message.component === 'Education' && <EducationSection />}
-                {message.component === 'Skills' && <SkillsSection />}
-                {message.component === 'Publications' && <PublicationsSection />}
-                {message.component === 'Media' && <MediaSection />}
-                {message.component === 'Gallery' && <GallerySection />}
-                {message.component === 'Contact' && <ContactSection />}
-                {message.component === 'Learning' && <RecentLearningSection />}
-                {message.component === 'Tools' && <FavoriteToolsSection />}
-             </div>
-           )}
-           
-           {/* Streaming Cursor */}
-           {message.isStreaming && !message.component && (
-             <span className="w-3 h-5 bg-cyan-500 inline-block animate-pulse ml-1 align-middle rounded-sm shadow-[0_0_15px_#22d3ee]" />
-           )}
+          {/* Dynamic Component Content */}
+          {!isUser && (
+            <div className="mt-8">
+              {message.component === 'About' && <AboutSection />}
+              {message.component === 'Projects' && <ProjectsSection />}
+              {message.component === 'Patents' && <PatentsSection />}
+              {message.component === 'Experience' && <ExperienceSection />}
+              {message.component === 'Education' && <EducationSection />}
+              {message.component === 'Skills' && <SkillsSection />}
+              {message.component === 'Publications' && <PublicationsSection />}
+              {message.component === 'Media' && <MediaSection />}
+              {message.component === 'Gallery' && <GallerySection />}
+              {message.component === 'Contact' && <ContactSection />}
+              {message.component === 'Learning' && <RecentLearningSection />}
+              {message.component === 'Tools' && <FavoriteToolsSection />}
+            </div>
+          )}
+
+          {/* Streaming Cursor */}
+          {message.isStreaming && !message.component && (
+            <span className="w-3 h-5 bg-amber-500 inline-block animate-pulse ml-1 align-middle rounded-sm shadow-[0_0_15px_#fbbf24]" />
+          )}
         </div>
       </div>
     </div>

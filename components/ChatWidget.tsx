@@ -121,43 +121,43 @@ const ChatWidget: React.FC = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
       {/* Chat Window */}
       {isOpen && (
-        <div className="pointer-events-auto mb-4 w-[90vw] md:w-[400px] h-[60vh] max-h-[600px] bg-white/80 backdrop-blur-xl border border-white/60 rounded-3xl shadow-2xl shadow-[#4E342E]/10 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-bottom-10">
+        <div className="pointer-events-auto mb-4 w-[90vw] md:w-[400px] h-[60vh] max-h-[600px] bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-bottom-10">
 
           {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-[#4E342E]/10 to-transparent border-b border-[#4E342E]/10 flex justify-between items-center">
+          <div className="p-4 bg-gradient-to-r from-amber-900/20 to-transparent border-b border-white/5 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <Avatar />
               <div>
-                <h3 className="text-sm font-black text-[#3E2723] tracking-wide uppercase">Vibe Agent</h3>
-                <p className="text-[10px] text-[#4E342E]/80 font-mono flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-[#4E342E] rounded-full animate-pulse"></span> ONLINE
+                <h3 className="text-sm font-black text-amber-500 tracking-wide uppercase">Vibe Agent</h3>
+                <p className="text-[10px] text-zinc-400 font-mono flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span> ONLINE
                 </p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 hover:bg-white/50 rounded-full text-[#795548] hover:text-[#3E2723] transition-colors"
+              className="p-2 hover:bg-white/5 rounded-full text-zinc-400 hover:text-white transition-colors"
             >
               <X size={18} />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-[#4E342E]/20 scrollbar-track-transparent">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-amber-900/20 scrollbar-track-transparent">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 {msg.role === 'model' && <ChatMessageAvatar />}
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                    ? 'bg-[#4E342E] text-white font-medium rounded-tr-sm'
-                    : 'bg-white/60 border border-white/50 text-[#3E2723] rounded-tl-sm'
+                    ? 'bg-amber-600 text-white font-medium rounded-tr-sm'
+                    : 'bg-white/5 border border-white/10 text-zinc-200 rounded-tl-sm'
                     }`}
                 >
                   {msg.text}
                 </div>
                 {msg.role === 'user' && (
-                  <div className="w-8 h-8 rounded-full bg-[#4E342E] border border-white/10 flex items-center justify-center shrink-0">
-                    <User size={14} className="text-[#D7CCC8]" />
+                  <div className="w-8 h-8 rounded-full bg-amber-600 border border-white/10 flex items-center justify-center shrink-0">
+                    <User size={14} className="text-amber-100" />
                   </div>
                 )}
               </div>
@@ -165,11 +165,11 @@ const ChatWidget: React.FC = () => {
             {isLoading && (
               <div className="flex gap-3">
                 <ChatMessageAvatar />
-                <div className="bg-white/60 border border-white/50 px-4 py-3 rounded-2xl rounded-tl-sm">
+                <div className="bg-white/5 border border-white/10 px-4 py-3 rounded-2xl rounded-tl-sm">
                   <span className="flex gap-1">
-                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce"></span>
-                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce"></span>
+                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
                   </span>
                 </div>
               </div>
@@ -178,21 +178,21 @@ const ChatWidget: React.FC = () => {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-[#4E342E]/10 bg-white/50">
-            <div className="flex items-center gap-2 bg-white/60 border border-white/50 rounded-full px-4 py-2 focus-within:border-[#4E342E]/30 transition-colors">
+          <div className="p-4 border-t border-white/5 bg-zinc-950/30">
+            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 focus-within:border-amber-500/30 transition-colors">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyPress}
+                onKeyPress={handleKeyPress}
                 placeholder="Ask about my projects..."
-                className="flex-1 bg-transparent border-none outline-none text-sm text-[#3E2723] placeholder-[#8D6E63]"
+                className="flex-1 bg-transparent border-none outline-none text-sm text-zinc-200 placeholder-zinc-500"
                 disabled={isLoading}
               />
               <button
                 onClick={() => handleSend()}
                 disabled={isLoading || !input.trim()}
-                className="p-2 bg-[#4E342E]/10 hover:bg-[#4E342E] text-[#4E342E] hover:text-white rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-white rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send size={16} />
               </button>
@@ -206,8 +206,8 @@ const ChatWidget: React.FC = () => {
               ].map((chip, i) => (
                 <button
                   key={i}
-                  onClick={() => handleSend(chip.query)} // Modified to send immediately or set input
-                  className="whitespace-nowrap px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] text-zinc-500 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  onClick={() => handleSend(chip.query)}
+                  className="whitespace-nowrap px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] text-zinc-400 hover:text-amber-400 hover:border-amber-500/30 transition-all"
                 >
                   {chip.label}
                 </button>
@@ -220,10 +220,10 @@ const ChatWidget: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`pointer-events-auto group relative flex items-center justify-center w-14 h-14 rounded-full shadow-2xl shadow-[#4E342E]/20 transition-all duration-300 hover:scale-110 active:scale-95 overflow-hidden border-2 ${isOpen ? 'bg-[#3E2723] text-white rotate-90 border-white/10' : 'bg-gradient-to-tr from-[#4E342E] to-[#6D4C41] text-white border-transparent'
+        className={`pointer-events-auto group relative flex items-center justify-center w-14 h-14 rounded-full shadow-2xl shadow-amber-900/20 transition-all duration-300 hover:scale-110 active:scale-95 overflow-hidden border-2 ${isOpen ? 'bg-zinc-900 text-white rotate-90 border-white/10' : 'bg-gradient-to-tr from-amber-600 to-amber-700 text-white border-transparent'
           }`}
       >
-        <div className={`absolute inset-0 rounded-full bg-[#8D6E63] opacity-20 animate-ping ${isOpen ? 'hidden' : 'block'}`}></div>
+        <div className={`absolute inset-0 rounded-full bg-amber-400 opacity-20 animate-ping ${isOpen ? 'hidden' : 'block'}`}></div>
         {isOpen ? <X size={24} /> : <FloatingToggleIcon />}
       </button>
     </div>
