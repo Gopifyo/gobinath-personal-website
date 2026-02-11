@@ -190,7 +190,7 @@ const ChatWidget: React.FC = () => {
                 disabled={isLoading}
               />
               <button
-                onClick={handleSend}
+                onClick={() => handleSend()}
                 disabled={isLoading || !input.trim()}
                 className="p-2 bg-[#4E342E]/10 hover:bg-[#4E342E] text-[#4E342E] hover:text-white rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
