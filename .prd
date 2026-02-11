@@ -1,0 +1,33 @@
+# PRD: VibeOS - Gobinath Portfolio Interface
+
+## 1. Project Vision
+VibeOS is a premium, high-performance personal portfolio designed to present Gobinath as a "Vibe Coder" and Bioengineer. It bridges the gap between scientific rigor (Biotech) and modern digital experiences (Agentic AI/Social UX).
+
+## 2. Core Personas
+- **Target Audience**: High-end tech recruiters, Biotech VCs, AI researchers, and collaborators.
+- **The Brand**: "Bioengineer. Vibe Coder. Founder."
+
+## 3. Design Philosophy
+- **Aesthetic**: "Terminal-Chic" / "Cyber-Lab". Uses slate-950 backgrounds with lime-400 (Biotech) and sky-400 (AI) highlights.
+- **UX Pattern**: Operating System (OS) metaphor. A desktop launcher leads to a chat-centric "Vault" experience.
+- **Vibe**: High-energy, professional, and automated.
+
+## 4. Feature Set
+- **Desktop Launcher**: Immersive entrance with dynamic background animations.
+- **Agentic Chat**: A Gemini-powered "Vibe Agent" that serves as the primary navigation and information retriever.
+- **Component Modules**:
+    - **Vault (Gallery)**: Visual proof of lab and tech work.
+    - **Protocols (Experience)**: Structured professional history.
+    - **Modules (Projects)**: Showcase of agentic AI and mobile products.
+    - **Archives (Publications/Patents)**: Peer-reviewed validation of scientific impact.
+- **Knowledge Sync**: Ability for users to "sync" their own portrait for a personalized feel.
+
+## 5. Technical Stack
+- **Frontend**: React 19, Tailwind CSS, Lucide Icons.
+- **AI**: Google Gemini API (@google/genai) using `gemini-3-flash-preview`.
+- **State**: React Hooks with local storage persistence for "Protocol Identity" (profile images).
+
+## 6. Success Metrics
+- Seamless image loading from the `gallery/` root folder.
+- Zero-latency feel in UI transitions (Framer-like animations).
+- High engagement with the "Vibe Agent" chat interface.
