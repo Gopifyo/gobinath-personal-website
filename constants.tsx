@@ -105,6 +105,16 @@ export const PUBLICATIONS: Publication[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
+    role: "Founder",
+    company: "Antigravity",
+    location: "Corvallis, OR",
+    period: "Dec 2025 – Present",
+    highlights: [
+      "Building a nightlife social utility platform designed to remove friction in socialization.",
+      "Developing real-time venue vibe check and social matching algorithms."
+    ]
+  },
+  {
     role: "Research Assistant",
     company: "Oregon State University",
     location: "Corvallis, OR",
