@@ -310,7 +310,7 @@ const App: React.FC = () => {
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto pb-44 md:pb-56 px-4 md:px-0 scroll-smooth">
+            <div className="flex-1 overflow-y-auto pb-52 md:pb-64 px-4 md:px-0 scroll-smooth">
               <div className="max-w-4xl mx-auto w-full pt-8">
                 {messages.map((msg, index) => (
                   <MessageBubble key={index} message={msg} />
@@ -338,7 +338,7 @@ const App: React.FC = () => {
             </button>
 
             {/* Floating Glass Input */}
-            <div className="absolute bottom-0 left-0 w-full pt-6 pb-5 md:pb-6 px-4 md:px-8 bg-gradient-to-t from-[#09090b] via-[#09090b]/95 to-transparent z-10 backdrop-blur-sm">
+            <div className="absolute bottom-0 left-0 w-full pt-6 pb-5 md:pb-6 px-4 md:px-8 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent z-10 backdrop-blur-xl">
               <div className="max-w-3xl mx-auto">
                 <ChatInput onSend={handleUserMessage} disabled={isTyping} />
               </div>
