@@ -29,16 +29,15 @@ const App: React.FC = () => {
   // Initialize Welcome Message with Persona Context
   useEffect(() => {
     if (launchState === 'running') {
-      let personaGreeting = "Hello. I am the Vibe Agent. Protocol synchronized for Gobinath's vault.";
-
+      let personaGreeting = "Welcome. I'm Gobinath, a Bioengineer and Founder. How can I help you today?";
       if (selectedPersona === 'investor') {
-        personaGreeting = "Investor access granted. Intelligence bridge synchronized. Accessing product roadmap and patent archives.";
+        personaGreeting = "Welcome. Here is my product roadmap and patent portfolio. What would you like to see?";
       } else if (selectedPersona === 'researcher') {
-        personaGreeting = "Academic link established. Accessing publication datasets and laboratory protocols.";
+        personaGreeting = "Welcome. I've compiled my research on bioprinting and tissue engineering here.";
       } else if (selectedPersona === 'collaborator') {
-        personaGreeting = "Partnership protocol initiated. Synchronizing technical stack and project logs.";
+        personaGreeting = "Great to meet you. I'm always looking for high-impact collaborations.";
       } else if (selectedPersona === 'curious') {
-        personaGreeting = "Visitor access enabled. Welcome to the Bio-Digital vault. Loading overview.";
+        personaGreeting = "Hello! Feel free to explore my work in AI and Bio-engineering.";
       }
 
       const initialMessages: MessageType[] = [
@@ -134,21 +133,29 @@ const App: React.FC = () => {
 
   const handleNavigate = (section: string) => {
     setSidebarOpen(false);
-    const config = {
-      'About': { prompt: "Who is Gobinath?", text: "Running identity sync. Here is the profile overview.", component: 'About' },
-      'Projects': { prompt: "Show me the projects.", text: "Check out the product and project matrix.", component: 'Projects' },
-      'Patents': { prompt: "Tell me about your patents.", text: "Accessing Intellectual Property vault.", component: 'Patents' },
-      'Experience': { prompt: "What is the work experience?", text: "Here is the professional timeline.", component: 'Experience' },
-      'Education': { prompt: "Show education history.", text: "Here is the academic background.", component: 'Education' },
-      'Skills': { prompt: "List technical skills.", text: "Here is the technical arsenal.", component: 'Skills' },
-      'Publications': { prompt: "Show publications.", text: "Here are the scientific publications.", component: 'Publications' },
-      'Media': { prompt: "Show media coverage.", text: "Here is the recent press coverage.", component: 'Media' },
-      'Contact': { prompt: "How do I contact?", text: "Communication channels open.", component: 'Contact' },
-      'Gallery': { prompt: "Show me the visual vault.", text: "Opening visual archives.", component: 'Gallery' },
+
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Update chat context with natural language
+    // Note: chatWidgetRef and setActiveSection are not defined in this scope.
+    // Assuming the intent is to update the chat messages directly.
+    const messagesConfig = {
+      'About': { prompt: "Who is Gobinath?", text: "Here is a bit about who I am.", component: 'About' },
+      'Projects': { prompt: "Show me the projects.", text: "Here are the projects I've been working on.", component: 'Projects' },
+      'Patents': { prompt: "Show me patents.", text: "Here is my portfolio of intellectual property.", component: 'Patents' },
+      'Experience': { prompt: "Show me experience.", text: "Here is my professional timeline.", component: 'Experience' },
+      'Skills': { prompt: "List technical skills.", text: "These are the tools and technologies I use.", component: 'Skills' },
+      'Education': { prompt: "Show education.", text: "Here is my academic background.", component: 'Education' },
+      'Publications': { prompt: "Show publications.", text: "Here are my research publications.", component: 'Publications' },
+      'Media': { prompt: "Show media coverage.", text: "Here are some press features and articles.", component: 'Media' },
+      'Gallery': { prompt: "Show the gallery.", text: "Welcome to my personal gallery.", component: 'Gallery' },
+      'Contact': { prompt: "How to contact?", text: "Here is the best way to reach me.", component: 'Contact' },
       'Learning': { prompt: "What have you been learning lately?", text: "Accessing knowledge synchronization log.", component: 'Learning' },
       'Tools': { prompt: "What tools do you use?", text: "Displaying favorite tools and development stack.", component: 'Tools' },
     };
-    const target = config[section as keyof typeof config];
+
+    const target = messagesConfig[section as keyof typeof messagesConfig];
     if (!target) return;
 
     setMessages(prev => [...prev, { role: 'user', text: target.prompt }]);
