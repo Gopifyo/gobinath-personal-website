@@ -17,9 +17,7 @@ const App: React.FC = () => {
   // Chat App State
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('About');
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   // Clock for Desktop
@@ -135,7 +133,6 @@ const App: React.FC = () => {
 
   const handleNavigate = (section: string) => {
     setSidebarOpen(false);
-    setActiveSection(section);
 
     // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -286,7 +283,6 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
-              activeSection={activeSection}
             />
           </div>
 
@@ -297,7 +293,6 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
-              activeSection={activeSection}
             />
           </div>
 
@@ -306,7 +301,7 @@ const App: React.FC = () => {
             {/* Desktop Status Bar */}
             <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-zinc-900/50 backdrop-blur-md shrink-0">
               <div className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
+                <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_#fbbf24]" />
                 <span className="text-[10px] font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
               </div>
               <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"><Menu size={20} /></button>
@@ -322,7 +317,7 @@ const App: React.FC = () => {
                   <div className="w-full p-6 md:p-10 animate-in fade-in">
                     <div className="flex gap-4 md:gap-6 max-w-3xl mx-auto">
                       <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center shrink-0 border border-white/10">
-                        <Sparkles size={18} className="text-cyan-400 animate-pulse" />
+                        <Sparkles size={18} className="text-amber-400 animate-pulse" />
                       </div>
                       <span className="text-zinc-500 text-sm font-mono tracking-widest pt-2 uppercase">Syncing Archive...</span>
                     </div>
@@ -359,22 +354,22 @@ const PersonaButton = ({ icon, label, onClick, selected }: { icon: React.ReactNo
     className={`
       group flex flex-col items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-6 rounded-2xl md:rounded-3xl transition-all duration-300 border relative overflow-hidden
       ${selected
-        ? 'glass-panel bg-white/10 border-cyan-500/50 shadow-[0_0_30px_rgba(34,211,238,0.15)] scale-105'
+        ? 'glass-panel bg-white/10 border-amber-500/50 shadow-[0_0_30px_rgba(251,191,36,0.15)] scale-105'
         : 'glass-card hover:bg-white/5 hover:border-white/20 scale-100'}
     `}
   >
     {selected && (
-      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_#22d3ee] animate-pulse"></div>
+      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-amber-400 rounded-full shadow-[0_0_8px_#fbbf24] animate-pulse"></div>
     )}
     <div className={`
       p-2.5 md:p-3.5 rounded-xl md:rounded-2xl transition-all duration-300
-      ${selected ? 'bg-cyan-500 text-black shadow-lg shadow-cyan-500/20' : 'bg-white/5 text-zinc-400 group-hover:text-white'}
+      ${selected ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' : 'bg-white/5 text-zinc-400 group-hover:text-white'}
     `}>
       {icon}
     </div>
     <span className={`
       text-[8px] md:text-[10px] font-mono uppercase tracking-[0.2em] transition-colors
-      ${selected ? 'text-cyan-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
+      ${selected ? 'text-amber-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
     `}>
       {label}
     </span>
