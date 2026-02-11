@@ -4,20 +4,21 @@ import { ExternalLink, Github, Linkedin, MapPin, ChevronRight, FileText, ArrowUp
 import { MediaItem, GalleryItem } from '../types';
 
 // Premium Bio-Digital Core Replacement for Bot Icon
-export const BioDigitalCore = ({ size = "w-full h-full", glowColor = "rgba(34, 211, 238, 0.5)" }) => (
+// Premium Bio-Digital Core Replacement for Bot Icon
+export const BioDigitalCore = ({ size = "w-full h-full", glowColor = "rgba(251, 191, 36, 0.5)" }) => (
   <div className={`relative ${size} flex items-center justify-center`}>
     {/* Outer Organic Membrane */}
-    <div className="absolute inset-0 border border-cyan-500/30 rounded-full animate-[pulse_4s_ease-in-out_infinite] scale-90"></div>
+    <div className="absolute inset-0 border border-amber-500/30 rounded-full animate-[pulse_4s_ease-in-out_infinite] scale-90"></div>
     {/* Inner Neural Core */}
-    <div className="relative w-1/2 h-1/2 bg-gradient-to-tr from-cyan-900 to-emerald-900 rounded-full shadow-[0_0_30px_rgba(34,211,238,0.2)] animate-pulse">
+    <div className="relative w-1/2 h-1/2 bg-gradient-to-tr from-amber-900 to-violet-900 rounded-full shadow-[0_0_30px_rgba(251,191,36,0.2)] animate-pulse">
       <div className="absolute inset-0 bg-white/10 rounded-full blur-sm"></div>
     </div>
     {/* Orbiting Electrons/Data Points */}
     <div className="absolute inset-0 animate-[spin_10s_linear_infinite]">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_#22d3ee]"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-amber-400 rounded-full shadow-[0_0_8px_#fbbf24]"></div>
     </div>
     <div className="absolute inset-0 animate-[spin_15s_linear_infinite_reverse]">
-      <div className="absolute bottom-4 left-4 w-1 h-1 bg-emerald-400 rounded-full shadow-[0_0_8px_#10b981]"></div>
+      <div className="absolute bottom-4 left-4 w-1 h-1 bg-violet-400 rounded-full shadow-[0_0_8px_#a78bfa]"></div>
     </div>
   </div>
 );
@@ -29,10 +30,10 @@ export const RecentLearningSection = () => (
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
           <Database size={80} className="text-white" />
         </div>
-        <div className="px-4 py-2 rounded-xl text-[10px] font-mono font-bold uppercase tracking-widest border bg-cyan-950/30 text-cyan-400 border-cyan-900/50 w-fit mb-8">
+        <div className="px-4 py-2 rounded-xl text-[10px] font-mono font-bold uppercase tracking-widest border bg-amber-950/30 text-amber-400 border-amber-900/50 w-fit mb-8">
           Deep Dive // 2025
         </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors">Database Architecture</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-amber-400 transition-colors">Database Architecture</h3>
         <p className="text-lg text-zinc-400 leading-relaxed font-light">
           Mastering relational modeling, indexing strategies, and high-throughput data pipelines for managing massive biological datasets.
         </p>
@@ -42,10 +43,10 @@ export const RecentLearningSection = () => (
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
           <Zap size={80} className="text-white" />
         </div>
-        <div className="px-4 py-2 rounded-xl text-[10px] font-mono font-bold uppercase tracking-widest border bg-emerald-950/30 text-emerald-400 border-emerald-900/50 w-fit mb-8">
+        <div className="px-4 py-2 rounded-xl text-[10px] font-mono font-bold uppercase tracking-widest border bg-violet-950/30 text-violet-400 border-violet-900/50 w-fit mb-8">
           In Progress
         </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-emerald-400 transition-colors">MySQL Optimization</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-violet-400 transition-colors">MySQL Optimization</h3>
         <p className="text-lg text-zinc-400 leading-relaxed font-light">
           Advanced query tuning and schema design to ensure milliseconds-level response times for social consumer platform backends.
         </p>
@@ -59,8 +60,8 @@ export const FavoriteToolsSection = () => {
     { name: "Google Antigravity", desc: "Advanced physics engine orchestration.", icon: <Box className="text-white" /> },
     { name: "Claude Code", desc: "Elite logic & reasoning for complex codebases.", icon: <Zap className="text-amber-500" /> },
     { name: "Cursor Agent", desc: "AI-native IDE for rapid prototype scaling.", icon: <Layout className="text-blue-400" /> },
-    { name: "VS Code", desc: "The foundational environment for all vibes.", icon: <Code2 className="text-cyan-400" /> },
-    { name: "ChatGPT", desc: "Strategic brainstorming and logic verification.", icon: <Sparkles className="text-emerald-400" /> },
+    { name: "VS Code", desc: "The foundational environment for all vibes.", icon: <Code2 className="text-amber-400" /> },
+    { name: "ChatGPT", desc: "Strategic brainstorming and logic verification.", icon: <Sparkles className="text-violet-400" /> },
     { name: "R Studio", desc: "Statistical depth for biological data synthesis.", icon: <Database className="text-indigo-400" /> },
   ];
 
@@ -93,7 +94,7 @@ export const AboutSection = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[0.9] uppercase transition-all duration-500 hover:tracking-tight group cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 BIOENGINEER.<br />
                 VIBE CODER.<br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-amber-400 to-blue-500">
                   FOUNDER.
                 </span>
               </h1>
