@@ -386,8 +386,8 @@ export const GallerySection = () => {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl animate-in fade-in duration-300" onClick={handleClose} />
           <div className="relative z-10 max-w-5xl w-full flex flex-col items-center animate-in zoom-in-95 duration-500">
-            <button onClick={handleClose} className="absolute -top-16 right-0 p-3 text-white/60 hover:text-white transition-colors">
-              <X size={40} />
+            <button onClick={handleClose} className="fixed top-6 right-6 z-[110] p-3 text-white/80 hover:text-white transition-colors bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-md border border-white/10">
+              <X size={32} />
             </button>
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 bg-black">
               <img src={selectedImage.imageUrl} alt={selectedImage.title} className="max-h-[75vh] w-auto object-contain" />

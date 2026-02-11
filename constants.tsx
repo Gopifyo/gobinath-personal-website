@@ -450,5 +450,12 @@ export const GALLERY: GalleryItem[] = [
     category: "Tech",
     imageUrl: "gallery/photo-6.jpg",
     description: "Processing complex biological datasets using Python pipelines."
+  },
+  {
+    id: "g8",
+    title: "New Gallery Item",
+    category: "Personal",
+    imageUrl: "gallery/gobi11.jpeg",
+    description: "New addition to the gallery."
   }
 ];
