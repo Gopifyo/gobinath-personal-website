@@ -61,16 +61,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset,
             <div className="px-5 py-2 text-[10px] font-mono font-bold text-zinc-600 uppercase tracking-widest">Interface Logs</div>
 
             <NavButton active={activeSection === 'About'} icon={<User size={18} />} label="Who is Gobinath?" onClick={() => onNavigate('About')} />
+            <NavButton active={activeSection === 'Experience'} icon={<Briefcase size={18} />} label="Where has he worked?" onClick={() => onNavigate('Experience')} />
             <NavButton active={activeSection === 'Projects'} icon={<Code2 size={18} />} label="What has been built?" onClick={() => onNavigate('Projects')} />
             <NavButton active={activeSection === 'Patents'} icon={<ShieldCheck size={18} />} label="What patents are filed?" onClick={() => onNavigate('Patents')} />
-            <NavButton active={activeSection === 'Experience'} icon={<Briefcase size={18} />} label="Where has he worked?" onClick={() => onNavigate('Experience')} />
             <NavButton active={activeSection === 'Skills'} icon={<LinkIcon size={18} />} label="What is the technical stack?" onClick={() => onNavigate('Skills')} />
+            <NavButton active={activeSection === 'Education'} icon={<GraduationCap size={18} />} label="What is his background?" onClick={() => onNavigate('Education')} />
             <NavButton active={activeSection === 'Publications'} icon={<FlaskConical size={18} />} label="What are his publications?" onClick={() => onNavigate('Publications')} />
             <NavButton active={activeSection === 'Media'} icon={<Newspaper size={18} />} label="What is the media footprint?" onClick={() => onNavigate('Media')} />
+            <NavButton active={activeSection === 'Gallery'} icon={<ImageIcon size={18} />} label="Can I see the gallery?" onClick={() => onNavigate('Gallery')} />
             <NavButton active={activeSection === 'Learning'} icon={<BrainCircuit size={18} />} label="Recent Learning: DB, MySQL" onClick={() => onNavigate('Learning')} />
             <NavButton active={activeSection === 'Tools'} icon={<Wrench size={18} />} label="Favorite Tools: Claude, Cursor" onClick={() => onNavigate('Tools')} />
-            <NavButton active={activeSection === 'Gallery'} icon={<ImageIcon size={18} />} label="Can I see the gallery?" onClick={() => onNavigate('Gallery')} />
-            <NavButton active={activeSection === 'Education'} icon={<GraduationCap size={18} />} label="What is his background?" onClick={() => onNavigate('Education')} />
             <NavButton active={activeSection === 'Contact'} icon={<Mail size={18} />} label="Best way to contact him?" onClick={() => onNavigate('Contact')} />
           </div>
         </div>
