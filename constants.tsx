@@ -54,7 +54,7 @@ export const PATENTS: Patent[] = [
     title: "Extraction of biomaterial grade scaffolds from the marine red seaweed Devaleraea mollis (commonly known as Pacific dulse) for tissue engineering applications",
     status: "Under processing",
     description: "A novel method for extracting biocompatible, animal-free tissue scaffolds from marine sources, specifically optimizing for clinical-grade regenerative medicine applications.",
-    year: "2024"
+    year: "2025"
   }
 ];
 
