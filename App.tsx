@@ -17,7 +17,9 @@ const App: React.FC = () => {
   // Chat App State
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('About');
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   // Clock for Desktop
@@ -133,6 +135,7 @@ const App: React.FC = () => {
 
   const handleNavigate = (section: string) => {
     setSidebarOpen(false);
+    setActiveSection(section);
 
     // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -283,6 +286,7 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
+              activeSection={activeSection}
             />
           </div>
 
@@ -293,6 +297,7 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
+              activeSection={activeSection}
             />
           </div>
 
