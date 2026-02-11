@@ -93,7 +93,7 @@ export const AboutSection = () => {
             <div className="flex flex-col">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[0.9] uppercase transition-all duration-500 hover:tracking-tight group cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 BIOENGINEER.<br />
-                VIBE CODER.<br />
+                BUILDER.<br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-amber-400 to-blue-500">
                   FOUNDER.
                 </span>
