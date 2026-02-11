@@ -191,8 +191,8 @@ const App: React.FC = () => {
           <div className="absolute top-0 w-full h-10 flex justify-between px-6 items-center z-20 glass-panel border-b border-white/5 bg-black/20">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
-                <span className="text-[10px] font-mono font-bold text-cyan-100 tracking-[0.2em] uppercase">Security Level: High</span>
+                <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_#fbbf24]" />
+                <span className="text-[10px] font-mono font-bold text-amber-100 tracking-[0.2em] uppercase">Kobalan Gobinath</span>
               </div>
             </div>
             <div className="flex items-center gap-4 text-xs text-zinc-500 font-mono">
