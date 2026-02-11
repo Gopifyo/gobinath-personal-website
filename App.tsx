@@ -320,6 +320,14 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            {/* Scroll To Top Button */}
+            <button
+              onClick={() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              className="fixed bottom-24 right-6 p-3 bg-zinc-800/80 backdrop-blur text-zinc-400 hover:text-white rounded-full border border-white/10 shadow-xl transition-all hover:scale-110 active:scale-90 z-40 md:hidden"
+            >
+              <ArrowRight size={20} className="-rotate-90" />
+            </button>
+
             {/* Floating Glass Input */}
             <div className="absolute bottom-0 left-0 w-full pt-6 pb-5 md:pb-6 px-4 md:px-8 bg-gradient-to-t from-[#09090b] via-[#09090b]/95 to-transparent z-10 backdrop-blur-sm">
               <div className="max-w-3xl mx-auto">

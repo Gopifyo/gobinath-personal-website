@@ -61,42 +61,43 @@ const ChatWidget: React.FC = () => {
 
     return (
       <div className={`${size} rounded-lg overflow-hidden border border-[#4E342E]/20 flex items-center justify-center bg-white/50 shrink-0`}>
-          {!error ? (
-              <img 
-                  src={imgSrc} 
-                  alt="Agent" 
-                  className="w-full h-full object-cover"
-                  onError={() => {
-                       setError(true);
-                  }}
-              />
-          ) : (
-              <Bot size={iconSize} className="text-[#4E342E]" />
-          )}
+        {!error ? (
+          <img
+            src={imgSrc}
+            alt="Agent"
+            className="w-full h-full object-cover"
+            onError={() => {
+              setError(true);
+            }}
+            loading="lazy"
+          />
+        ) : (
+          <Bot size={iconSize} className="text-[#4E342E]" />
+        )}
       </div>
     );
   };
 
   const ChatMessageAvatar = () => {
-      const [imgSrc, setImgSrc] = useState(PROFILE_IMAGE);
-      const [error, setError] = useState(false);
+    const [imgSrc, setImgSrc] = useState(PROFILE_IMAGE);
+    const [error, setError] = useState(false);
 
-      return (
-        <div className="w-8 h-8 rounded-full border border-[#4E342E]/20 overflow-hidden shrink-0 flex items-center justify-center bg-white/50">
-             {!error ? (
-                 <img 
-                    src={imgSrc} 
-                    alt="Agent" 
-                    className="w-full h-full object-cover"
-                    onError={() => {
-                       setError(true);
-                    }}
-                 />
-             ) : (
-                 <Bot size={16} className="text-[#4E342E]" />
-             )}
-        </div>
-      );
+    return (
+      <div className="w-8 h-8 rounded-full border border-[#4E342E]/20 overflow-hidden shrink-0 flex items-center justify-center bg-white/50">
+        {!error ? (
+          <img
+            src={imgSrc}
+            alt="Agent"
+            className="w-full h-full object-cover"
+            onError={() => {
+              setError(true);
+            }}
+          />
+        ) : (
+          <Bot size={16} className="text-[#4E342E]" />
+        )}
+      </div>
+    );
   };
 
   const FloatingToggleIcon = () => {
@@ -106,9 +107,9 @@ const ChatWidget: React.FC = () => {
     if (error) return <MessageCircle size={28} className="fill-current" />;
 
     return (
-      <img 
-        src={imgSrc} 
-        alt="Open Chat" 
+      <img
+        src={imgSrc}
+        alt="Open Chat"
         className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-300"
         onError={() => setError(true)}
       />
@@ -120,7 +121,7 @@ const ChatWidget: React.FC = () => {
       {/* Chat Window */}
       {isOpen && (
         <div className="pointer-events-auto mb-4 w-[90vw] md:w-[400px] h-[60vh] max-h-[600px] bg-white/80 backdrop-blur-xl border border-white/60 rounded-3xl shadow-2xl shadow-[#4E342E]/10 flex flex-col overflow-hidden transition-all duration-300 origin-bottom-right animate-in fade-in slide-in-from-bottom-10">
-          
+
           {/* Header */}
           <div className="p-4 bg-gradient-to-r from-[#4E342E]/10 to-transparent border-b border-[#4E342E]/10 flex justify-between items-center">
             <div className="flex items-center gap-3">
@@ -132,7 +133,7 @@ const ChatWidget: React.FC = () => {
                 </p>
               </div>
             </div>
-            <button 
+            <button
               onClick={() => setIsOpen(false)}
               className="p-2 hover:bg-white/50 rounded-full text-[#795548] hover:text-[#3E2723] transition-colors"
             >
@@ -145,19 +146,18 @@ const ChatWidget: React.FC = () => {
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 {msg.role === 'model' && <ChatMessageAvatar />}
-                <div 
-                  className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
-                    msg.role === 'user' 
-                      ? 'bg-[#4E342E] text-white font-medium rounded-tr-sm' 
-                      : 'bg-white/60 border border-white/50 text-[#3E2723] rounded-tl-sm'
-                  }`}
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                    ? 'bg-[#4E342E] text-white font-medium rounded-tr-sm'
+                    : 'bg-white/60 border border-white/50 text-[#3E2723] rounded-tl-sm'
+                    }`}
                 >
                   {msg.text}
                 </div>
                 {msg.role === 'user' && (
-                   <div className="w-8 h-8 rounded-full bg-[#4E342E] border border-white/10 flex items-center justify-center shrink-0">
-                     <User size={14} className="text-[#D7CCC8]" />
-                   </div>
+                  <div className="w-8 h-8 rounded-full bg-[#4E342E] border border-white/10 flex items-center justify-center shrink-0">
+                    <User size={14} className="text-[#D7CCC8]" />
+                  </div>
                 )}
               </div>
             ))}
@@ -165,11 +165,11 @@ const ChatWidget: React.FC = () => {
               <div className="flex gap-3">
                 <ChatMessageAvatar />
                 <div className="bg-white/60 border border-white/50 px-4 py-3 rounded-2xl rounded-tl-sm">
-                   <span className="flex gap-1">
-                     <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce"></span>
-                     <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                     <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.4s]"></span>
-                   </span>
+                  <span className="flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce"></span>
+                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                    <span className="w-1.5 h-1.5 bg-[#8D6E63] rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                  </span>
                 </div>
               </div>
             )}
@@ -188,7 +188,7 @@ const ChatWidget: React.FC = () => {
                 className="flex-1 bg-transparent border-none outline-none text-sm text-[#3E2723] placeholder-[#8D6E63]"
                 disabled={isLoading}
               />
-              <button 
+              <button
                 onClick={handleSend}
                 disabled={isLoading || !input.trim()}
                 className="p-2 bg-[#4E342E]/10 hover:bg-[#4E342E] text-[#4E342E] hover:text-white rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -196,9 +196,21 @@ const ChatWidget: React.FC = () => {
                 <Send size={16} />
               </button>
             </div>
-            <div className="mt-2 flex gap-2 justify-center">
-              <button onClick={() => setInput("What is Agentic AI?")} className="text-[10px] text-[#795548] hover:text-[#4E342E] transition-colors">"What is Agentic AI?"</button>
-              <button onClick={() => setInput("Tell me about your bio-engineering work")} className="text-[10px] text-[#795548] hover:text-[#4E342E] transition-colors">"Bio-engineering work?"</button>
+            <div className="mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+              {[
+                { label: "What is Antigravity OS?", query: "Tell me about Antigravity Nightlife OS" },
+                { label: "Bio-printing research?", query: "What is your work in 3D bioprinting?" },
+                { label: "View Gallery", query: "Show me the gallery" },
+                { label: "Contact Info", query: "How can I contact you?" }
+              ].map((chip, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleSend(chip.query)} // Modified to send immediately or set input
+                  className="whitespace-nowrap px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] text-zinc-500 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                >
+                  {chip.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -207,9 +219,8 @@ const ChatWidget: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`pointer-events-auto group relative flex items-center justify-center w-14 h-14 rounded-full shadow-2xl shadow-[#4E342E]/20 transition-all duration-300 hover:scale-110 active:scale-95 overflow-hidden border-2 ${
-          isOpen ? 'bg-[#3E2723] text-white rotate-90 border-white/10' : 'bg-gradient-to-tr from-[#4E342E] to-[#6D4C41] text-white border-transparent'
-        }`}
+        className={`pointer-events-auto group relative flex items-center justify-center w-14 h-14 rounded-full shadow-2xl shadow-[#4E342E]/20 transition-all duration-300 hover:scale-110 active:scale-95 overflow-hidden border-2 ${isOpen ? 'bg-[#3E2723] text-white rotate-90 border-white/10' : 'bg-gradient-to-tr from-[#4E342E] to-[#6D4C41] text-white border-transparent'
+          }`}
       >
         <div className={`absolute inset-0 rounded-full bg-[#8D6E63] opacity-20 animate-ping ${isOpen ? 'hidden' : 'block'}`}></div>
         {isOpen ? <X size={24} /> : <FloatingToggleIcon />}

@@ -342,6 +342,7 @@ const GalleryThumbnail: React.FC<{ item: GalleryItem; onClick: () => void }> = (
             setError(true);
           }}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 grayscale-[50%] group-hover:grayscale-0"
+          loading="lazy"
         />
       ) : (
         <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-white/5">
@@ -369,6 +370,16 @@ export const GallerySection = () => {
     if (!selectedImage) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') handleClose();
+      if (e.key === 'ArrowLeft') {
+        const currentIndex = GALLERY.findIndex(g => g.id === selectedImage.id);
+        const prevIndex = (currentIndex - 1 + GALLERY.length) % GALLERY.length;
+        setSelectedImage(GALLERY[prevIndex]);
+      }
+      if (e.key === 'ArrowRight') {
+        const currentIndex = GALLERY.findIndex(g => g.id === selectedImage.id);
+        const nextIndex = (currentIndex + 1) % GALLERY.length;
+        setSelectedImage(GALLERY[nextIndex]);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
@@ -383,19 +394,55 @@ export const GallerySection = () => {
       </div>
 
       {selectedImage && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-xl animate-in fade-in duration-300" onClick={handleClose} />
-          <div className="relative z-10 max-w-5xl w-full flex flex-col items-center animate-in zoom-in-95 duration-500">
-            <button onClick={handleClose} className="fixed top-6 right-6 z-[110] p-3 text-white/80 hover:text-white transition-colors bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-md border border-white/10">
-              <X size={32} />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-xl animate-in fade-in duration-300">
+          <div className="absolute inset-0" onClick={handleClose} />
+
+          <div className="relative z-10 max-w-6xl w-full flex items-center justify-between gap-4 animate-in zoom-in-95 duration-500">
+            {/* Prev Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const currentIndex = GALLERY.findIndex(g => g.id === selectedImage.id);
+                const prevIndex = (currentIndex - 1 + GALLERY.length) % GALLERY.length;
+                setSelectedImage(GALLERY[prevIndex]);
+              }}
+              className="p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block"
+            >
+              <ChevronLeft size={48} />
             </button>
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 bg-black">
-              <img src={selectedImage.imageUrl} alt={selectedImage.title} className="max-h-[75vh] w-auto object-contain" />
+
+            <div className="relative flex flex-col items-center flex-1 max-h-[90vh]">
+              <button onClick={handleClose} className="absolute -top-12 right-0 md:-right-12 p-2 text-white/60 hover:text-white transition-colors bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md">
+                <X size={24} />
+              </button>
+
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 bg-black/50">
+                <img src={selectedImage.imageUrl} alt={selectedImage.title} className="max-h-[70vh] w-auto object-contain" loading="lazy" />
+              </div>
+
+              <div className="mt-6 text-center max-w-2xl px-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{selectedImage.title}</h3>
+                <p className="text-zinc-400 text-sm md:text-base font-light">{selectedImage.description}</p>
+                <div className="flex gap-2 justify-center mt-4">
+                  {GALLERY.map((g, idx) => (
+                    <div key={g.id} className={`w-2 h-2 rounded-full transition-all ${g.id === selectedImage.id ? 'bg-cyan-400 w-4' : 'bg-white/20'}`} />
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="mt-10 text-center max-w-2xl">
-              <h3 className="text-3xl font-bold text-white mb-4">{selectedImage.title}</h3>
-              <p className="text-zinc-400 text-lg font-light leading-relaxed">{selectedImage.description}</p>
-            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const currentIndex = GALLERY.findIndex(g => g.id === selectedImage.id);
+                const nextIndex = (currentIndex + 1) % GALLERY.length;
+                setSelectedImage(GALLERY[nextIndex]);
+              }}
+              className="p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block"
+            >
+              <ChevronRightIcon size={48} />
+            </button>
           </div>
         </div>
       )}
@@ -409,7 +456,7 @@ export const MediaSection = () => (
       <div key={i} className="group relative flex flex-col rounded-[2.5rem] glass-card hover:bg-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-xl border border-white/10">
         <div className="relative h-56 w-full overflow-hidden bg-white/5 border-b border-white/10">
           {item.imageUrl ? (
-            <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale-[50%] group-hover:grayscale-0" />
+            <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale-[50%] group-hover:grayscale-0" loading="lazy" />
           ) : (
             <div className="w-full h-full flex items-center justify-center"><Newspaper size={48} className="text-zinc-700" /></div>
           )}
