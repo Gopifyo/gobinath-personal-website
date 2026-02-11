@@ -7,9 +7,10 @@ interface SidebarProps {
   onClose: () => void;
   onNavigate: (section: string) => void;
   onReset: () => void;
+  activeSection?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset, activeSection }) => {
   const [imgSrc, setImgSrc] = useState(PROFILE_IMAGE);
   const [imgError, setImgError] = useState(false);
 
@@ -59,18 +60,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset 
           <div className="mb-4 space-y-1">
             <div className="px-5 py-2 text-[10px] font-mono font-bold text-zinc-600 uppercase tracking-widest">Interface Logs</div>
 
-            <NavButton icon={<User size={18} />} label="Who is Gobinath?" onClick={() => onNavigate('About')} />
-            <NavButton icon={<Code2 size={18} />} label="What has been built?" onClick={() => onNavigate('Projects')} />
-            <NavButton icon={<ShieldCheck size={18} />} label="What patents are filed?" onClick={() => onNavigate('Patents')} />
-            <NavButton icon={<Briefcase size={18} />} label="Where has he worked?" onClick={() => onNavigate('Experience')} />
-            <NavButton icon={<LinkIcon size={18} />} label="What is the technical stack?" onClick={() => onNavigate('Skills')} />
-            <NavButton icon={<FlaskConical size={18} />} label="What are his publications?" onClick={() => onNavigate('Publications')} />
-            <NavButton icon={<Newspaper size={18} />} label="What is the media footprint?" onClick={() => onNavigate('Media')} />
-            <NavButton icon={<BrainCircuit size={18} />} label="Recent Learning: DB, MySQL" onClick={() => onNavigate('Learning')} />
-            <NavButton icon={<Wrench size={18} />} label="Favorite Tools: Claude, Cursor" onClick={() => onNavigate('Tools')} />
-            <NavButton icon={<ImageIcon size={18} />} label="Can I see the gallery?" onClick={() => onNavigate('Gallery')} />
-            <NavButton icon={<GraduationCap size={18} />} label="What is his background?" onClick={() => onNavigate('Education')} />
-            <NavButton icon={<Mail size={18} />} label="Best way to contact him?" onClick={() => onNavigate('Contact')} />
+            <NavButton active={activeSection === 'About'} icon={<User size={18} />} label="Who is Gobinath?" onClick={() => onNavigate('About')} />
+            <NavButton active={activeSection === 'Projects'} icon={<Code2 size={18} />} label="What has been built?" onClick={() => onNavigate('Projects')} />
+            <NavButton active={activeSection === 'Patents'} icon={<ShieldCheck size={18} />} label="What patents are filed?" onClick={() => onNavigate('Patents')} />
+            <NavButton active={activeSection === 'Experience'} icon={<Briefcase size={18} />} label="Where has he worked?" onClick={() => onNavigate('Experience')} />
+            <NavButton active={activeSection === 'Skills'} icon={<LinkIcon size={18} />} label="What is the technical stack?" onClick={() => onNavigate('Skills')} />
+            <NavButton active={activeSection === 'Publications'} icon={<FlaskConical size={18} />} label="What are his publications?" onClick={() => onNavigate('Publications')} />
+            <NavButton active={activeSection === 'Media'} icon={<Newspaper size={18} />} label="What is the media footprint?" onClick={() => onNavigate('Media')} />
+            <NavButton active={activeSection === 'Learning'} icon={<BrainCircuit size={18} />} label="Recent Learning: DB, MySQL" onClick={() => onNavigate('Learning')} />
+            <NavButton active={activeSection === 'Tools'} icon={<Wrench size={18} />} label="Favorite Tools: Claude, Cursor" onClick={() => onNavigate('Tools')} />
+            <NavButton active={activeSection === 'Gallery'} icon={<ImageIcon size={18} />} label="Can I see the gallery?" onClick={() => onNavigate('Gallery')} />
+            <NavButton active={activeSection === 'Education'} icon={<GraduationCap size={18} />} label="What is his background?" onClick={() => onNavigate('Education')} />
+            <NavButton active={activeSection === 'Contact'} icon={<Mail size={18} />} label="Best way to contact him?" onClick={() => onNavigate('Contact')} />
           </div>
         </div>
 
@@ -107,14 +108,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onNavigate, onReset 
   );
 };
 
-const NavButton = ({ icon, label, onClick }: { icon: any, label: string, onClick: () => void }) => (
+const NavButton = ({ icon, label, onClick, active }: { icon: any, label: string, onClick: () => void, active?: boolean }) => (
   <button
     onClick={onClick}
     type="button"
-    className="flex items-center gap-4 w-full px-5 py-2.5 rounded-xl hover:bg-white/5 text-zinc-400 hover:text-white text-sm transition-all text-left group truncate border border-transparent hover:border-white/5"
+    className={`flex items-center gap-4 w-full px-5 py-2.5 rounded-xl text-sm transition-all text-left group truncate border 
+      ${active
+        ? 'bg-amber-500/10 text-white border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]'
+        : 'hover:bg-white/5 text-zinc-400 hover:text-white border-transparent hover:border-white/5'
+      }
+    `}
   >
-    <span className="text-zinc-600 group-hover:text-amber-400 transition-colors group-hover:scale-110 duration-300 shrink-0">{icon}</span>
-    <span className="truncate font-light tracking-wide text-[13px]">{label}</span>
+    <span className={`transition-colors duration-300 shrink-0 ${active ? 'text-amber-400 scale-110' : 'text-zinc-600 group-hover:text-amber-400 group-hover:scale-110'}`}>{icon}</span>
+    <span className={`truncate tracking-wide text-[13px] ${active ? 'font-medium text-amber-100' : 'font-light'}`}>{label}</span>
   </button>
 );
 

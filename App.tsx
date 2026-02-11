@@ -283,6 +283,7 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
+              activeSection={messages.length > 0 ? messages[messages.length - 1].component : undefined}
             />
           </div>
 
@@ -293,6 +294,7 @@ const App: React.FC = () => {
               onClose={() => setSidebarOpen(false)}
               onNavigate={handleNavigate}
               onReset={handleReset}
+              activeSection={messages.length > 0 ? messages[messages.length - 1].component : undefined}
             />
           </div>
 
