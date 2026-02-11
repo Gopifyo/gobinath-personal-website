@@ -30,7 +30,7 @@ const App: React.FC = () => {
   useEffect(() => {
     if (launchState === 'running') {
       let personaGreeting = "Hello. I am the Vibe Agent. Protocol synchronized for Gobinath's vault.";
-      
+
       if (selectedPersona === 'investor') {
         personaGreeting = "Investor access granted. Intelligence bridge synchronized. Accessing product roadmap and patent archives.";
       } else if (selectedPersona === 'researcher') {
@@ -42,13 +42,13 @@ const App: React.FC = () => {
       }
 
       const initialMessages: MessageType[] = [
-        { 
-          role: 'model', 
+        {
+          role: 'model',
           text: personaGreeting,
-          isStreaming: false 
+          isStreaming: false
         },
         {
-          role: 'model', 
+          role: 'model',
           text: "Accessing primary identity module...",
           component: 'About',
           isStreaming: false
@@ -123,10 +123,10 @@ const App: React.FC = () => {
         responseText = "Command recognized. I am currently operating in direct-vault mode. You can ask about his projects, experience, patents, or tools.";
       }
 
-      setMessages(prev => [...prev, { 
-        role: 'model', 
-        text: responseText, 
-        component 
+      setMessages(prev => [...prev, {
+        role: 'model',
+        text: responseText,
+        component
       }]);
       setIsTyping(false);
     }, 800);
@@ -155,22 +155,22 @@ const App: React.FC = () => {
     setIsTyping(true);
 
     setTimeout(() => {
-        setMessages(prev => [...prev, { 
-            role: 'model', 
-            text: target.text, 
-            component: target.component,
-            isStreaming: false 
-        }]);
-        setIsTyping(false);
+      setMessages(prev => [...prev, {
+        role: 'model',
+        text: target.text,
+        component: target.component,
+        isStreaming: false
+      }]);
+      setIsTyping(false);
     }, 600);
   };
 
   const handleReset = () => {
-     setMessages([
+    setMessages([
       { role: 'model', text: "Session reset. Hello again.", isStreaming: false },
       { role: 'model', text: "Ready for new command.", component: 'About', isStreaming: false }
-     ]);
-     setSidebarOpen(false);
+    ]);
+    setSidebarOpen(false);
   };
 
   return (
@@ -183,10 +183,10 @@ const App: React.FC = () => {
           {/* Status Bar */}
           <div className="absolute top-0 w-full h-10 flex justify-between px-6 items-center z-20 glass-panel border-b border-white/5 bg-black/20">
             <div className="flex items-center gap-4">
-               <div className="flex items-center gap-2">
-                 <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
-                 <span className="text-[10px] font-mono font-bold text-cyan-100 tracking-[0.2em] uppercase">Security Level: High</span>
-               </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
+                <span className="text-[10px] font-mono font-bold text-cyan-100 tracking-[0.2em] uppercase">Security Level: High</span>
+              </div>
             </div>
             <div className="flex items-center gap-4 text-xs text-zinc-500 font-mono">
               <Wifi size={14} /> <Battery size={14} />
@@ -196,7 +196,7 @@ const App: React.FC = () => {
 
           <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 md:px-8 py-12">
             {/* Glass Hero Card */}
-            <div 
+            <div
               className={`
                 glass-panel rounded-[2.5rem] p-8 md:p-16 flex flex-col items-center gap-8 md:gap-12 transition-all duration-700 w-full max-w-5xl shadow-[0_0_100px_rgba(34,211,238,0.05)] border border-white/10
                 ${launchState === 'launching' ? 'scale-110 opacity-0 blur-2xl' : 'scale-100 opacity-100'}
@@ -204,11 +204,11 @@ const App: React.FC = () => {
             >
               <div className="text-center space-y-4 md:space-y-6">
                 <h2 className="text-2xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-lg">
-                  Intelligence bridge between <br/>
-                  <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">biotech</span> and <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">social consumer products</span>,<br/>
+                  Intelligence bridge between <br />
+                  <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">biotech</span> and <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">social consumer products</span>,<br />
                   <span className="italic font-black text-zinc-400">AI automation.</span>
                 </h2>
-                
+
                 <div className="pt-6 md:pt-10 space-y-8 md:space-y-12">
                   <div className="space-y-4 md:space-y-6">
                     <p className="text-[10px] font-mono tracking-[0.4em] text-zinc-500 uppercase flex items-center justify-center gap-3">
@@ -216,40 +216,40 @@ const App: React.FC = () => {
                       Identify Yourself
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-2">
-                      <PersonaButton 
-                        icon={<TrendingUp size={18} />} 
-                        label="Investor" 
+                      <PersonaButton
+                        icon={<TrendingUp size={18} />}
+                        label="Investor"
                         selected={selectedPersona === 'investor'}
-                        onClick={() => setSelectedPersona('investor')} 
+                        onClick={() => setSelectedPersona('investor')}
                       />
-                      <PersonaButton 
-                        icon={<FlaskConical size={18} />} 
-                        label="Researcher" 
+                      <PersonaButton
+                        icon={<FlaskConical size={18} />}
+                        label="Researcher"
                         selected={selectedPersona === 'researcher'}
-                        onClick={() => setSelectedPersona('researcher')} 
+                        onClick={() => setSelectedPersona('researcher')}
                       />
-                      <PersonaButton 
-                        icon={<Handshake size={18} />} 
-                        label="Collaborator" 
+                      <PersonaButton
+                        icon={<Handshake size={18} />}
+                        label="Collaborator"
                         selected={selectedPersona === 'collaborator'}
-                        onClick={() => setSelectedPersona('collaborator')} 
+                        onClick={() => setSelectedPersona('collaborator')}
                       />
-                      <PersonaButton 
-                        icon={<Eye size={18} />} 
-                        label="Curious" 
+                      <PersonaButton
+                        icon={<Eye size={18} />}
+                        label="Curious"
                         selected={selectedPersona === 'curious'}
-                        onClick={() => setSelectedPersona('curious')} 
+                        onClick={() => setSelectedPersona('curious')}
                       />
                     </div>
                   </div>
 
-                  <button 
+                  <button
                     disabled={!selectedPersona}
                     onClick={() => handleLaunch(selectedPersona || 'curious')}
                     className={`
                       group relative px-12 md:px-16 py-4 md:py-5 rounded-full font-mono tracking-[0.8em] text-[10px] md:text-xs uppercase transition-all overflow-hidden border
-                      ${selectedPersona 
-                        ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95' 
+                      ${selectedPersona
+                        ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95'
                         : 'bg-zinc-900/50 border-zinc-800 text-zinc-600 cursor-not-allowed'}
                     `}
                   >
@@ -268,53 +268,53 @@ const App: React.FC = () => {
         </div>
       ) : (
         <div className="flex h-full w-full overflow-hidden animate-in zoom-in-95 duration-700">
-          
+
           {/* Glass Sidebar */}
           <div className="hidden md:block h-full shrink-0">
-             <Sidebar 
-                isOpen={sidebarOpen} 
-                onClose={() => setSidebarOpen(false)} 
-                onNavigate={handleNavigate}
-                onReset={handleReset}
-             />
+            <Sidebar
+              isOpen={sidebarOpen}
+              onClose={() => setSidebarOpen(false)}
+              onNavigate={handleNavigate}
+              onReset={handleReset}
+            />
           </div>
 
           {/* Mobile Sidebar (Absolute) */}
           <div className="md:hidden">
-              <Sidebar 
-                isOpen={sidebarOpen} 
-                onClose={() => setSidebarOpen(false)} 
-                onNavigate={handleNavigate}
-                onReset={handleReset}
-             />
+            <Sidebar
+              isOpen={sidebarOpen}
+              onClose={() => setSidebarOpen(false)}
+              onNavigate={handleNavigate}
+              onReset={handleReset}
+            />
           </div>
 
           {/* Glass Main Content */}
           <main className="flex-1 relative flex flex-col h-full overflow-hidden glass-panel border-0 md:border-l-0 border-white/5 bg-black/20">
             {/* Desktop Status Bar */}
             <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-zinc-900/50 backdrop-blur-md shrink-0">
-                <div className="flex items-center gap-4">
-                   <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
-                   <span className="text-[10px] font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
-                </div>
-                <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"><Menu size={20}/></button>
+              <div className="flex items-center gap-4">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_#22d3ee]" />
+                <span className="text-[10px] font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
+              </div>
+              <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"><Menu size={20} /></button>
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto pb-32 md:pb-40 px-4 md:px-0 scroll-smooth">
+            <div className="flex-1 overflow-y-auto pb-44 md:pb-56 px-4 md:px-0 scroll-smooth">
               <div className="max-w-4xl mx-auto w-full pt-8">
                 {messages.map((msg, index) => (
                   <MessageBubble key={index} message={msg} />
                 ))}
                 {isTyping && (
-                   <div className="w-full p-6 md:p-10 animate-in fade-in">
-                     <div className="flex gap-4 md:gap-6 max-w-3xl mx-auto">
-                        <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center shrink-0 border border-white/10">
-                          <Sparkles size={18} className="text-cyan-400 animate-pulse" />
-                        </div>
-                        <span className="text-zinc-500 text-sm font-mono tracking-widest pt-2 uppercase">Syncing Archive...</span>
-                     </div>
-                   </div>
+                  <div className="w-full p-6 md:p-10 animate-in fade-in">
+                    <div className="flex gap-4 md:gap-6 max-w-3xl mx-auto">
+                      <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center shrink-0 border border-white/10">
+                        <Sparkles size={18} className="text-cyan-400 animate-pulse" />
+                      </div>
+                      <span className="text-zinc-500 text-sm font-mono tracking-widest pt-2 uppercase">Syncing Archive...</span>
+                    </div>
+                  </div>
                 )}
                 <div ref={scrollRef} className="h-4" />
               </div>
@@ -334,12 +334,12 @@ const App: React.FC = () => {
 };
 
 const PersonaButton = ({ icon, label, onClick, selected }: { icon: React.ReactNode, label: string, onClick: () => void, selected: boolean }) => (
-  <button 
+  <button
     onClick={onClick}
     className={`
       group flex flex-col items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-6 rounded-2xl md:rounded-3xl transition-all duration-300 border relative overflow-hidden
-      ${selected 
-        ? 'glass-panel bg-white/10 border-cyan-500/50 shadow-[0_0_30px_rgba(34,211,238,0.15)] scale-105' 
+      ${selected
+        ? 'glass-panel bg-white/10 border-cyan-500/50 shadow-[0_0_30px_rgba(34,211,238,0.15)] scale-105'
         : 'glass-card hover:bg-white/5 hover:border-white/20 scale-100'}
     `}
   >
