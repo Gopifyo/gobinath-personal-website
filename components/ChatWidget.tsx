@@ -19,10 +19,11 @@ const ChatWidget: React.FC = () => {
     scrollToBottom();
   }, [messages, isOpen]);
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+  const handleSend = async (message?: string) => {
+    const textToSend = message || input;
+    if (!textToSend.trim()) return;
 
-    const userMessage = input;
+    const userMessage = textToSend;
     setInput('');
     setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
     setIsLoading(true);
