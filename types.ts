@@ -39,7 +39,7 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  type: 'AI' | 'Mobile' | 'BioTech';
+  type: 'AI' | 'Mobile' | 'BioTech' | 'Research';
   link?: string;
 }
 

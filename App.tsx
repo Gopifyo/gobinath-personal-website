@@ -353,7 +353,7 @@ const PersonaButton = ({ icon, label, onClick, selected }: { icon: React.ReactNo
       {icon}
     </div>
     <span className={`
-      text-[9px] md:text-[11px] font-mono uppercase tracking-[0.2em] transition-colors
+      text-[8px] md:text-[10px] font-mono uppercase tracking-[0.2em] transition-colors
       ${selected ? 'text-cyan-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
     `}>
       {label}

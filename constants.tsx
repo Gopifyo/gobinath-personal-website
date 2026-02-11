@@ -20,25 +20,32 @@ export const SOCIAL_LINKS = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "Vibe-Engage AI",
-    description: "An automated agentic AI service for social consumer products. Orchestrates multi-agent workflows to manage community vibes, personalized engagement, and automated storytelling for brands.",
-    tags: ["Agentic AI", "Consumer Tech", "TypeScript", "LLM Orchestration"],
+    title: "Antigravity Nightlife OS",
+    description: "A futuristic operating system for nightlife, integrating social dynamics, real-time venue vibes, and seamless interactions.",
+    tags: ["Nightlife Tech", "Real-time", "Social OS"],
     type: "AI",
-    link: "https://github.com/gobinath-c/vibe-engage"
+    link: "https://github.com/gobinath-c/antigravity" // Placeholder link
   },
   {
-    title: "Bio-Insight Agent",
-    description: "A specialized agentic service that automates the extraction and synthesis of multi-modal biological data into consumer-friendly health insights. Bridging deep science and consumer UX.",
-    tags: ["Agentic RAG", "Python", "FastAPI", "Bio-Data"],
-    type: "AI",
-    link: "https://github.com/gobinath-c/bio-insight-agent"
-  },
-  {
-    title: "Pulse-Mobile",
-    description: "A social consumer application designed for high-performance lab teams. Features real-time IoT notifications, collaborative 'vibe' tracking for experiments, and automated inventory logistics.",
-    tags: ["React Native", "Social UX", "Firebase", "Real-time IoT"],
+    title: "CLOS-social gathering",
+    description: "A next-gen social gathering platform focused on bringing people together through curated events and intelligent matching.",
+    tags: ["Social", "Events", "Community"],
     type: "Mobile",
-    link: "https://github.com/gobinath-c/pulse-mobile"
+    link: "https://github.com/gobinath-c/clos" // Placeholder link
+  },
+  {
+    title: "3D Bioprinting of Cardiac & Muscle Tissue",
+    description: "Research project focusing on the bio-fabrication of complex cardiac and muscle tissues using advanced 3D bioprinting techniques.",
+    tags: ["Bioprinting", "Tissue Engineering", "Regenerative Medicine"],
+    type: "Research", // Changed type to separate from AI/Mobile
+    link: "https://github.com/gobinath-c/bioprinting" // Placeholder link
+  },
+  {
+    title: "Research Projects",
+    description: "Various research initiatives including diabetic cardiac modeling and seaweed-derived scaffolds.",
+    tags: ["Research", "Bioengineering", "Publications"],
+    type: "Research",
+    link: "#"
   }
 ];
 
@@ -286,7 +293,7 @@ Oregon State University researcher Gobinath Chithiravelu discusses seaweed-deriv
         pageNumber: 2,
         layout: 'full-image',
         content: "",
-        image: "https://images.unsplash.com/photo-1629196914168-3a958d929971?q=80&w=800&auto=format&fit=crop", 
+        image: "https://images.unsplash.com/photo-1629196914168-3a958d929971?q=80&w=800&auto=format&fit=crop",
         imageCaption: "sciencevega.com 02"
       },
       {
@@ -324,7 +331,7 @@ The choice of material largely depends on the intended application. For instance
         pageNumber: 5,
         layout: 'full-image',
         content: "",
-        image: "https://images.unsplash.com/photo-1581093458891-7731a1bc1286?q=80&w=800&auto=format&fit=crop", 
+        image: "https://images.unsplash.com/photo-1581093458891-7731a1bc1286?q=80&w=800&auto=format&fit=crop",
         imageCaption: "05 Gobinath Chithiravelu in the lab. Image © Gobinath Chithiravelu."
       },
       {
@@ -387,7 +394,7 @@ The link to the original paper can be found here.
         pageNumber: 8,
         layout: 'full-image',
         content: "",
-        image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?q=80&w=800&auto=format&fit=crop", 
+        image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?q=80&w=800&auto=format&fit=crop",
         imageCaption: "08 Using seaweed to develop stents could reduce the need for laboratory mice. It also means the resulting stents are vegan. Image © Rama."
       }
     ]
@@ -399,14 +406,14 @@ export const GALLERY: GalleryItem[] = [
     id: "g1",
     title: "Profile Portrait",
     category: "Personal",
-    imageUrl: PROFILE_IMAGE, 
+    imageUrl: PROFILE_IMAGE,
     description: "Official profile shot."
   },
   {
     id: "g2",
     title: "Advanced Lab Setup",
     category: "Lab",
-    imageUrl: "gallery/photo-1.jpg", 
+    imageUrl: "gallery/photo-1.jpg",
     description: "Configuring the new bio-engineering research station at Oregon State."
   },
   {
