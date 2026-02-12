@@ -27,6 +27,9 @@ const CardFront = () => (
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         <span className="text-[10px] text-zinc-500 font-mono">Open for Collaboration</span>
                     </div>
+                    <div className="text-[9px] text-zinc-400 font-mono tracking-widest mt-1.5 opacity-80">
+                        BIO • AI • CONSUMER • PRODUCT
+                    </div>
                 </div>
             </div>
             <ShieldCheck className="text-zinc-700 w-8 h-8 opacity-50" />
