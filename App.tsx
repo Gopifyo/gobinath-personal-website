@@ -205,24 +205,24 @@ const App: React.FC = () => {
             {/* Glass Hero Card */}
             <div
               className={`
-                glass-panel rounded-[2.5rem] p-8 md:p-16 flex flex-col items-center gap-8 md:gap-12 transition-all duration-700 w-full max-w-5xl shadow-[0_0_100px_rgba(34,211,238,0.05)] border border-white/10
+                glass-panel rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-16 flex flex-col items-center gap-6 md:gap-12 transition-all duration-700 w-full max-w-5xl shadow-[0_0_100px_rgba(34,211,238,0.05)] border border-white/10
                 ${launchState === 'launching' ? 'scale-110 opacity-0 blur-2xl' : 'scale-100 opacity-100'}
               `}
             >
               <div className="text-center space-y-4 md:space-y-6">
-                <h2 className="text-2xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-lg">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-lg px-2">
                   Intelligence bridge between <br />
                   <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">biotech</span> and <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">social consumer products</span>,<br />
                   <span className="italic font-black text-zinc-400">AI automation.</span>
                 </h2>
 
-                <div className="pt-6 md:pt-10 space-y-8 md:space-y-12">
+                <div className="pt-6 md:pt-10 space-y-6 md:space-y-12">
                   <div className="space-y-4 md:space-y-6">
-                    <p className="text-[10px] font-mono tracking-[0.4em] text-zinc-500 uppercase flex items-center justify-center gap-3">
+                    <p className="text-xs font-mono tracking-[0.4em] text-zinc-500 uppercase flex items-center justify-center gap-3">
                       <ShieldCheck size={12} className="text-cyan-400" />
                       Identify Yourself
                     </p>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-2">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-0 md:px-2">
                       <PersonaButton
                         icon={<TrendingUp size={18} />}
                         label="Investor"
@@ -254,7 +254,7 @@ const App: React.FC = () => {
                     disabled={!selectedPersona}
                     onClick={() => handleLaunch(selectedPersona || 'curious')}
                     className={`
-                      group relative px-12 md:px-16 py-4 md:py-5 rounded-full font-mono tracking-[0.8em] text-[10px] md:text-xs uppercase transition-all overflow-hidden border
+                      group relative px-12 md:px-16 py-4 md:py-5 rounded-full font-mono tracking-[0.8em] text-xs md:text-sm uppercase transition-all overflow-hidden border
                       ${selectedPersona
                         ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95'
                         : 'bg-zinc-900/50 border-zinc-800 text-zinc-600 cursor-not-allowed'}
@@ -304,7 +304,7 @@ const App: React.FC = () => {
             <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-zinc-900/50 backdrop-blur-md shrink-0">
               <div className="flex items-center gap-4">
                 <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_#fbbf24]" />
-                <span className="text-[10px] font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
+                <span className="text-xs font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
               </div>
               <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"><Menu size={20} /></button>
             </div>
@@ -370,7 +370,7 @@ const PersonaButton = ({ icon, label, onClick, selected }: { icon: React.ReactNo
       {icon}
     </div>
     <span className={`
-      text-[8px] md:text-[10px] font-mono uppercase tracking-[0.2em] transition-colors
+      text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] transition-colors
       ${selected ? 'text-amber-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
     `}>
       {label}

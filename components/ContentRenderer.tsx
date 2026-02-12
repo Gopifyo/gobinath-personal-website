@@ -26,7 +26,7 @@ export const BioDigitalCore = ({ size = "w-full h-full", glowColor = "rgba(251, 
 export const RecentLearningSection = () => (
   <div className="space-y-8 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="group glass-card rounded-[2.5rem] p-10 hover:bg-white/5 transition-all shadow-xl overflow-hidden relative border border-white/10">
+      <div className="group glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 transition-all shadow-xl overflow-hidden relative border border-white/10">
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
           <Database size={80} className="text-white" />
         </div>
@@ -39,7 +39,7 @@ export const RecentLearningSection = () => (
         </p>
       </div>
 
-      <div className="group glass-card rounded-[2.5rem] p-10 hover:bg-white/5 transition-all shadow-xl overflow-hidden relative border border-white/10">
+      <div className="group glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 transition-all shadow-xl overflow-hidden relative border border-white/10">
         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
           <Zap size={80} className="text-white" />
         </div>
@@ -68,7 +68,7 @@ export const FavoriteToolsSection = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
       {tools.map((tool, i) => (
-        <div key={i} className="group glass-card rounded-3xl p-8 hover:bg-white/5 hover:border-white/20 transition-all shadow-lg border border-white/10">
+        <div key={i} className="group glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 hover:bg-white/5 hover:border-white/20 transition-all shadow-lg border border-white/10">
           <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform shadow-sm group-hover:border-white/20">
             {tool.icon}
           </div>
@@ -91,7 +91,7 @@ export const AboutSection = () => {
         <div className="lg:col-span-7 space-y-6 lg:space-y-8 order-2 lg:order-1">
           <div className="space-y-3">
             <div className="flex flex-col">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[0.9] uppercase transition-all duration-500 hover:tracking-tight group cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[0.9] uppercase transition-all duration-500 hover:tracking-tight group cursor-default drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 BIOENGINEER.<br />
                 BUILDER.<br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-amber-400 to-blue-500">
@@ -109,19 +109,19 @@ export const AboutSection = () => {
           </div>
 
           <div className="space-y-4 md:space-y-5 max-w-xl">
-            <div className="relative border-l-2 border-cyan-500/30 pl-6">
+            <div className="relative border-l-2 border-cyan-500/30 pl-4 md:pl-6">
               <p className="text-zinc-300 text-lg leading-relaxed font-light italic">
                 "I build <strong className="text-white font-bold">social consumer products</strong> powered by <strong className="text-cyan-400 font-bold">automated AI workflows</strong>. My work exists at the intersection of bioprocess, tissue engineering, drug delivery and high-performance automation."
               </p>
             </div>
 
-            <p className="text-zinc-400 text-base leading-relaxed font-light pl-6">
+            <p className="text-zinc-400 text-base leading-relaxed font-light pl-4 md:pl-6">
               Currently scaling consumer products into seamless experiences for nightlife and a hiring platform.
             </p>
           </div>
 
           {/* Status Badges - Properly fitted flex wrap */}
-          <div className="flex flex-wrap items-center gap-3 pt-2 pl-6">
+          <div className="flex flex-wrap items-center gap-3 pt-2 pl-4 md:pl-6">
             <StatusBadge color="bg-cyan-500" text="Biotech Precision" />
             <StatusBadge color="bg-emerald-500" text="Agentic Automation" />
             <StatusBadge color="bg-blue-500" text="Consumer Product" />
@@ -172,7 +172,7 @@ export const ProjectsSection = () => (
   <div className="space-y-12 mt-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {PROJECTS.map((project, i) => (
-        <div key={i} className="group relative glass-card rounded-[2.5rem] p-10 hover:bg-white/5 hover:border-white/20 transition-all duration-500 flex flex-col h-full shadow-2xl border border-white/10">
+        <div key={i} className="group relative glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 hover:border-white/20 transition-all duration-500 flex flex-col h-full shadow-2xl border border-white/10">
           <div className="flex justify-between items-start mb-10">
             <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950/30 px-4 py-2 rounded-xl border border-cyan-900/50 uppercase tracking-[0.2em]">{project.type}</span>
             {project.link && (
@@ -181,7 +181,7 @@ export const ProjectsSection = () => (
               </a>
             )}
           </div>
-          <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors leading-tight">{project.title}</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors leading-tight">{project.title}</h3>
           <p className="text-lg text-zinc-400 mb-10 leading-relaxed font-light flex-1">{project.description}</p>
           <div className="flex flex-wrap gap-3 mt-auto">
             {project.tags.map(tag => (
@@ -199,7 +199,7 @@ export const ProjectsSection = () => (
 export const PatentsSection = () => (
   <div className="space-y-8 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
     {PATENTS.map((patent, i) => (
-      <div key={i} className="group relative glass-card rounded-[2.5rem] p-10 hover:bg-white/5 hover:border-emerald-500/30 transition-all duration-500 shadow-xl border border-white/10">
+      <div key={i} className="group relative glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 hover:border-emerald-500/30 transition-all duration-500 shadow-xl border border-white/10">
         <div className="flex justify-between items-start mb-8">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-emerald-950/30 rounded-2xl border border-emerald-900/50 text-emerald-400">
@@ -223,10 +223,10 @@ export const PatentsSection = () => (
 export const ExperienceSection = () => (
   <div className="space-y-14 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
     {EXPERIENCES.map((exp, i) => (
-      <div key={i} className="relative pl-12 border-l border-white/10 hover:border-white/30 transition-colors duration-500 group">
+      <div key={i} className="relative pl-8 md:pl-12 border-l border-white/10 hover:border-white/30 transition-colors duration-500 group">
         <div className="absolute -left-[5px] top-0 w-[10px] h-[10px] bg-zinc-700 rounded-full ring-4 ring-black group-hover:bg-cyan-400 group-hover:scale-150 transition-all" />
         <div className="mb-6">
-          <h3 className="text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">{exp.role}</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">{exp.role}</h3>
           <div className="text-sm font-mono text-zinc-500 mt-2 uppercase tracking-widest">{exp.company} // {exp.period}</div>
         </div>
         <ul className="space-y-4">
@@ -245,8 +245,8 @@ export const ExperienceSection = () => (
 export const EducationSection = () => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
     {EDUCATION.map((edu, i) => (
-      <div key={i} className="group glass-card rounded-[2.5rem] p-10 transition-all hover:bg-white/5 hover:border-white/20 shadow-xl border border-white/10">
-        <h3 className="text-2xl font-bold text-white mb-4 leading-tight">{edu.degree}</h3>
+      <div key={i} className="group glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 transition-all hover:bg-white/5 hover:border-white/20 shadow-xl border border-white/10">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight">{edu.degree}</h3>
         <div className="mb-8">
           {edu.link ? (
             <a
@@ -273,7 +273,7 @@ export const EducationSection = () => (
 export const SkillsSection = () => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 animate-in fade-in slide-in-from-bottom-6 duration-700">
     {SKILLS.map((cat, i) => (
-      <div key={i} className="glass-card p-10 rounded-[2.5rem] hover:border-white/20 transition-all duration-500 border border-white/10">
+      <div key={i} className="glass-card p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] hover:border-white/20 transition-all duration-500 border border-white/10">
         <h4 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em] mb-10 border-b border-white/5 pb-6">{cat.category}</h4>
         <div className="flex flex-wrap gap-3">
           {cat.skills.map(skill => (
@@ -292,7 +292,7 @@ export const PublicationsSection = () => (
     {PUBLICATIONS.map((pub, i) => {
       const url = pub.link || (pub.doi ? `https://doi.org/${pub.doi}` : undefined);
       return (
-        <div key={i} className="group relative flex gap-8 p-8 rounded-[2rem] glass-card hover:bg-white/5 transition-all duration-500 border border-white/10">
+        <div key={i} className="group relative flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] glass-card hover:bg-white/5 transition-all duration-500 border border-white/10">
           <div className="shrink-0 pt-1 text-zinc-500 group-hover:text-cyan-400 transition-colors duration-500">
             <FileText size={32} />
           </div>
@@ -407,7 +407,7 @@ export const GallerySection = () => {
                 const prevIndex = (currentIndex - 1 + GALLERY.length) % GALLERY.length;
                 setSelectedImage(GALLERY[prevIndex]);
               }}
-              className="p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block"
+              className="p-2 md:p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all absolute left-2 top-1/2 -translate-y-1/2 md:static md:translate-y-0 z-20 md:z-auto bg-black/50 md:bg-transparent"
             >
               <ChevronLeft size={48} />
             </button>
@@ -440,7 +440,7 @@ export const GallerySection = () => {
                 const nextIndex = (currentIndex + 1) % GALLERY.length;
                 setSelectedImage(GALLERY[nextIndex]);
               }}
-              className="p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all hidden md:block"
+              className="p-2 md:p-3 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all absolute right-2 top-1/2 -translate-y-1/2 md:static md:translate-y-0 z-20 md:z-auto bg-black/50 md:bg-transparent"
             >
               <ChevronRightIcon size={48} />
             </button>
@@ -454,7 +454,7 @@ export const GallerySection = () => {
 export const MediaSection = () => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
     {MEDIA.map((item, i) => (
-      <div key={i} className="group relative flex flex-col rounded-[2.5rem] glass-card hover:bg-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-xl border border-white/10">
+      <div key={i} className="group relative flex flex-col rounded-[2rem] md:rounded-[2.5rem] glass-card hover:bg-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-xl border border-white/10">
         <div className="relative h-56 w-full overflow-hidden bg-white/5 border-b border-white/10">
           {item.imageUrl ? (
             <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale-[50%] group-hover:grayscale-0" loading="lazy" />
@@ -465,7 +465,7 @@ export const MediaSection = () => (
             <span className="text-[10px] font-mono font-bold text-black bg-white/90 px-4 py-2 rounded-xl shadow-2xl uppercase tracking-widest">{item.type}</span>
           </div>
         </div>
-        <div className="p-10 flex-1 flex flex-col">
+        <div className="p-6 md:p-10 flex-1 flex flex-col">
           <div className="text-[10px] text-zinc-500 font-mono mb-4 flex items-center gap-3 tracking-[0.2em] uppercase">
             <span>{item.source}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>
@@ -485,8 +485,8 @@ export const MediaSection = () => (
 );
 
 export const ContactSection = () => (
-  <div className="mt-10 p-16 glass-panel rounded-[3rem] border border-white/10 text-center animate-in fade-in slide-in-from-bottom-6 duration-700 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
-    <h3 className="text-4xl font-black text-white mb-6 uppercase tracking-tight">Direct Synchronization</h3>
+  <div className="mt-10 p-8 md:p-16 glass-panel rounded-[2rem] md:rounded-[3rem] border border-white/10 text-center animate-in fade-in slide-in-from-bottom-6 duration-700 shadow-2xl bg-gradient-to-br from-white/5 to-transparent">
+    <h3 className="text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tight">Direct Synchronization</h3>
     <p className="text-zinc-400 mb-12 text-xl font-light max-w-xl mx-auto leading-relaxed">The best way to reach out for high-impact collaborations, product ventures, or deep-tech research.</p>
     <div className="flex flex-col md:flex-row justify-center gap-6">
       <a href={`mailto:${SOCIAL_LINKS.email}`} className="flex-1 px-8 py-5 bg-white text-black hover:bg-cyan-400 rounded-[1.5rem] text-lg font-black transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest flex items-center justify-center gap-3">
