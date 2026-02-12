@@ -421,51 +421,23 @@ export const GALLERY: GalleryItem[] = [
   },
   {
     id: "g2",
-    title: "Advanced Lab Setup",
-    category: "Lab",
-    imageUrl: "gallery/photo-1.jpg",
-    description: "Configuring the new bio-engineering research station at Oregon State."
+    title: "Personal",
+    category: "Personal",
+    imageUrl: "gallery/gobi11.jpeg",
+    description: "Personal gallery addition."
   },
   {
     id: "g3",
-    title: "Vibe Coding Station",
-    category: "Tech",
-    imageUrl: "gallery/photo-2.jpg",
-    description: "Building the next generation of agentic AI services in the home lab."
+    title: "Bioengineering Symposium",
+    category: "Conference",
+    imageUrl: "gallery/Bioengineering Symposium-364.jpg",
+    description: "Presenting research at the Bioengineering Symposium."
   },
   {
     id: "g4",
-    title: "Conference Speaking",
+    title: "Symposium Presentation",
     category: "Conference",
-    imageUrl: "gallery/photo-3.jpg",
-    description: "Presenting findings on Seaweed Derived Polysaccharides."
-  },
-  {
-    id: "g5",
-    title: "Microscopic Analysis",
-    category: "Lab",
-    imageUrl: "gallery/photo-4.jpg",
-    description: "High-content image analysis of cell-material interactions."
-  },
-  {
-    id: "g6",
-    title: "University Campus",
-    category: "Personal",
-    imageUrl: "gallery/photo-5.jpg",
-    description: "Morning walk through the campus before heading to the lab."
-  },
-  {
-    id: "g7",
-    title: "Data Synthesis",
-    category: "Tech",
-    imageUrl: "gallery/photo-6.jpg",
-    description: "Processing complex biological datasets using Python pipelines."
-  },
-  {
-    id: "g8",
-    title: "New Gallery Item",
-    category: "Personal",
-    imageUrl: "gallery/gobi11.jpeg",
-    description: "New addition to the gallery."
+    imageUrl: "gallery/Bioengineering Symposium-363.jpg",
+    description: "Discussing the future of biomaterials."
   }
 ];
