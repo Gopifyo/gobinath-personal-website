@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PROJECTS, EXPERIENCES, SKILLS, PUBLICATIONS, EDUCATION, MEDIA, SOCIAL_LINKS, PROFILE_IMAGE, GALLERY, PATENTS } from '../constants';
 import { ExternalLink, Github, Linkedin, MapPin, ChevronRight, FileText, ArrowUpRight, Newspaper, X, Eye, BookOpen, ChevronLeft, ChevronRight as ChevronRightIcon, Download, ZoomIn, ZoomOut, User, Maximize2, ImageOff, Bot, Mail, ShieldCheck, Sparkles, Cpu, Camera, Database, Zap, Code2, Layout, Box } from 'lucide-react';
 import { MediaItem, GalleryItem } from '../types';
+import { DigitalCard } from './DigitalCard';
 
 // Premium Bio-Digital Core Replacement for Bot Icon
 // Premium Bio-Digital Core Replacement for Bot Icon
@@ -498,6 +499,11 @@ export const ContactSection = () => (
       <a href={`https://${SOCIAL_LINKS.github}`} target="_blank" className="flex-1 px-8 py-5 bg-white/10 border border-white/20 hover:bg-white/20 text-white rounded-[1.5rem] text-lg font-black transition-all flex items-center justify-center gap-4 hover:border-white/40 uppercase tracking-widest backdrop-blur-md">
         <Github size={22} /> Access Git
       </a>
+    </div>
+
+    <div className="mt-16 pt-16 border-t border-white/5">
+      <h4 className="text-xl font-bold text-zinc-500 mb-8 uppercase tracking-widest">Digital Identity Token</h4>
+      <DigitalCard />
     </div>
   </div>
 );
