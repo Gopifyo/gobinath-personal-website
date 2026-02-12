@@ -22,7 +22,7 @@ const CardFront = () => (
                 </div>
                 <div>
                     <h3 className="text-2xl font-bold text-white tracking-tight leading-none mb-1">Gobinath</h3>
-                    <p className="text-xs text-amber-400 font-mono tracking-widest uppercase mb-1">Bioengineer & Founder</p>
+                    <p className="text-xs text-amber-400 font-mono tracking-widest uppercase mb-1">Engineer & Builder</p>
                     <div className="flex items-center gap-1.5">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         <span className="text-[10px] text-zinc-500 font-mono">Open for Collaboration</span>
@@ -50,7 +50,7 @@ const CardFront = () => (
             </div>
             {/* Mini QR on front */}
             <div className="p-1.5 bg-white rounded-lg shadow-lg opacity-50 grayscale hover:grayscale-0 transition-all">
-                <QRCodeCanvas value={`https://${SOCIAL_LINKS.linkedin}`} size={40} />
+                <QRCodeCanvas value={`https://${SOCIAL_LINKS.linkedin}`} size={48} />
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ const CardBack = () => (
 
                 {/* QR Code as Hologram */}
                 <div className="p-1 bg-white rounded-lg shadow-lg">
-                    <QRCodeCanvas value={`https://${SOCIAL_LINKS.linkedin}`} size={56} />
+                    <QRCodeCanvas value={`https://${SOCIAL_LINKS.linkedin}`} size={64} />
                 </div>
             </div>
 
