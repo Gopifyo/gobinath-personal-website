@@ -1,5 +1,5 @@
 
-import { Publication, Experience, SkillCategory, Education, Project, MediaItem, GalleryItem, Patent } from './types';
+import { Publication, Experience, SkillCategory, Education, Project, MediaItem, GalleryItem, Patent } from './types/app';
 
 // ==========================================
 // FILE STRUCTURE UPDATE

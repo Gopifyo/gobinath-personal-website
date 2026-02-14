@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PROJECTS, EXPERIENCES, SKILLS, PUBLICATIONS, EDUCATION, MEDIA, SOCIAL_LINKS, PROFILE_IMAGE, GALLERY, PATENTS } from '../constants';
 import { ExternalLink, Github, Linkedin, MapPin, ChevronRight, FileText, ArrowUpRight, Newspaper, X, Eye, BookOpen, ChevronLeft, ChevronRight as ChevronRightIcon, Download, ZoomIn, ZoomOut, User, Maximize2, ImageOff, Bot, Mail, ShieldCheck, Sparkles, Cpu, Camera, Database, Zap, Code2, Layout, Box } from 'lucide-react';
-import { MediaItem, GalleryItem } from '../types';
+import { MediaItem, GalleryItem } from '../types/app';
 import { DigitalCard } from './DigitalCard';
 
 // Premium Bio-Digital Core Replacement for Bot Icon
@@ -193,7 +193,7 @@ export const ProjectsSection = () => (
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors leading-tight">{project.title}</h3>
           <p className="text-lg text-zinc-400 mb-10 leading-relaxed font-light flex-1">{project.description}</p>
           <div className="flex flex-wrap gap-3 mt-auto">
-            {project.tags.map(tag => (
+            {project.tags.map((tag: string) => (
               <span key={tag} className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-zinc-500 font-mono tracking-wider uppercase group-hover:text-white transition-colors shadow-sm">
                 {tag}
               </span>
@@ -239,7 +239,7 @@ export const ExperienceSection = () => (
           <div className="text-sm font-mono text-zinc-500 mt-2 uppercase tracking-widest">{exp.company} // {exp.period}</div>
         </div>
         <ul className="space-y-4">
-          {exp.highlights.map((h, j) => (
+          {exp.highlights.map((h: string, j: number) => (
             <li key={j} className="text-lg text-zinc-400 leading-relaxed flex items-start gap-5 font-light">
               <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 mt-2.5 shrink-0 group-hover:bg-cyan-500 transition-colors" />
               {h}
@@ -285,7 +285,7 @@ export const SkillsSection = () => (
       <div key={i} className="glass-card p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] hover:border-white/20 transition-all duration-500 border border-white/10">
         <h4 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em] mb-10 border-b border-white/5 pb-6">{cat.category}</h4>
         <div className="flex flex-wrap gap-3">
-          {cat.skills.map(skill => (
+          {cat.skills.map((skill: string) => (
             <span key={skill} className="text-sm font-mono text-zinc-400 bg-white/5 px-5 py-3 rounded-xl hover:bg-white/10 hover:text-white transition-all cursor-default border border-transparent hover:border-white/10">
               {skill}
             </span>
