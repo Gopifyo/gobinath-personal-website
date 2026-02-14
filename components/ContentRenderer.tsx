@@ -117,7 +117,7 @@ export const AboutSection = () => {
             </div>
 
             <p className="text-zinc-400 text-base leading-relaxed font-light pl-4 md:pl-6">
-              Currently scaling consumer products into seamless experiences for nightlife and a hiring platform.
+              Currently scaling consumer products into seamless experiences for nightlife and a hiring platform. I am open to <span className="text-zinc-300 font-normal">human health research</span> focusing on <span className="text-cyan-400/80">longevity</span>, <span className="text-blue-400/80">cardiovascular diseases</span>, and <span className="text-emerald-400/80">tissue engineering</span>.
             </p>
           </div>
 
@@ -162,12 +162,20 @@ export const AboutSection = () => {
   );
 };
 
-const StatusBadge = ({ color, text }: { color: string; text: string }) => (
-  <div className="glass-card bg-white/5 border border-white/10 px-4 md:px-5 py-2.5 md:py-3 rounded-2xl text-zinc-400 text-[10px] md:text-xs font-mono tracking-[0.1em] flex items-center gap-3 hover:border-white/20 hover:bg-white/10 transition-all cursor-default shadow-sm hover:shadow-md group shrink-0 uppercase">
-    <div className={`w-1.5 h-1.5 rounded-full ${color} animate-pulse shadow-[0_0_12px_${color}] group-hover:scale-125 transition-transform`}></div>
-    {text}
-  </div>
-);
+const StatusBadge = ({ color, text }: { color: string; text: string }) => {
+  // Extract color name for the shadow if possible, otherwise use a fallback
+  const glowColor = color.replace('bg-', '');
+
+  return (
+    <div className="glass-card bg-white/5 border border-white/10 px-4 md:px-5 py-2.5 md:py-3 rounded-2xl text-zinc-400 text-[10px] md:text-xs font-mono tracking-[0.1em] flex items-center gap-3 hover:border-white/20 hover:bg-white/10 transition-all cursor-default shadow-sm hover:shadow-md group shrink-0 uppercase">
+      <div
+        className={`w-1.5 h-1.5 rounded-full ${color} animate-pulse group-hover:scale-125 transition-transform shadow-lg`}
+        style={{ boxShadow: `0 0 12px var(--tw-shadow-color)` }}
+      ></div>
+      {text}
+    </div>
+  );
+};
 
 export const ProjectsSection = () => (
   <div className="space-y-12 mt-8 animate-in fade-in slide-in-from-bottom-6 duration-700">

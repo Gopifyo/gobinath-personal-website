@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Sidebar from './components/Sidebar';
-import ChatInput from './components/ChatInput';
-import MessageBubble from './components/MessageBubble';
+import { AnimatePresence, motion } from 'framer-motion';
 import BackgroundAnimation from './components/BackgroundAnimation';
-import { BioDigitalCore } from './components/ContentRenderer';
-import { PROJECTS, EXPERIENCES, SKILLS, EDUCATION, PUBLICATIONS, MEDIA, SOCIAL_LINKS, GALLERY, PATENTS, PROFILE_IMAGE } from './constants';
-import { Menu, Sparkles, Bot, Wifi, Battery, User, TrendingUp, FlaskConical, Handshake, Eye, ShieldCheck, ArrowRight } from 'lucide-react';
-import { MessageType } from './types';
+import Launcher from './components/Launcher';
+import OSInterface from './components/OSInterface';
+import { MessageType } from './types/app';
 
 const App: React.FC = () => {
   // Desktop / Launcher State
@@ -33,7 +30,7 @@ const App: React.FC = () => {
       if (selectedPersona === 'investor') {
         personaGreeting = "Welcome. Here is my product roadmap and patent portfolio. What would you like to see?";
       } else if (selectedPersona === 'researcher') {
-        personaGreeting = "Welcome. I've compiled my research on bioprinting and tissue engineering here.";
+        personaGreeting = "Welcome. I've compiled my research on longevity, cardiovascular health, and tissue engineering here.";
       } else if (selectedPersona === 'collaborator') {
         personaGreeting = "Great to meet you. I'm always looking for high-impact collaborations.";
       } else if (selectedPersona === 'curious') {
@@ -67,9 +64,11 @@ const App: React.FC = () => {
   const handleLaunch = (persona: string = 'curious') => {
     setSelectedPersona(persona);
     setLaunchState('launching');
+
+    // Impactful haptic-style delay
     setTimeout(() => {
       setLaunchState('running');
-    }, 800);
+    }, 2000);
   };
 
   const handleUserMessage = async (text: string) => {
@@ -133,13 +132,8 @@ const App: React.FC = () => {
 
   const handleNavigate = (section: string) => {
     setSidebarOpen(false);
-
-    // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Update chat context with natural language
-    // Note: chatWidgetRef and setActiveSection are not defined in this scope.
-    // Assuming the intent is to update the chat messages directly.
     const messagesConfig = {
       'About': { prompt: "Who is Gobinath?", text: "Here is a bit about who I am.", component: 'About' },
       'Projects': { prompt: "Show me the projects.", text: "Here are the projects I've been working on.", component: 'Projects' },
@@ -182,200 +176,80 @@ const App: React.FC = () => {
 
   return (
     <div className="flex h-screen h-[100dvh] w-full font-sans overflow-hidden text-zinc-100 selection:bg-cyan-500/30">
-      {/* Background Animation - Always present for Glassmorphism */}
       <BackgroundAnimation />
 
-      {launchState !== 'running' ? (
-        <div className="relative h-full w-full overflow-hidden font-sans select-none flex flex-col">
-          {/* Status Bar */}
-          <div className="absolute top-0 w-full h-10 flex justify-between px-6 items-center z-20 glass-panel border-b border-white/5 bg-black/20">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_#fbbf24]" />
-                <span className="text-[10px] font-mono font-bold text-amber-100 tracking-[0.2em] uppercase">Gobinath</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 text-xs text-zinc-500 font-mono">
-              <Wifi size={14} /> <Battery size={14} />
-              <span>{currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-            </div>
-          </div>
-
-          <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 md:px-8 py-12">
-            {/* Glass Hero Card */}
-            <div
-              className={`
-                glass-panel rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-16 flex flex-col items-center gap-6 md:gap-12 transition-all duration-700 w-full max-w-5xl shadow-[0_0_100px_rgba(34,211,238,0.05)] border border-white/10
-                ${launchState === 'launching' ? 'scale-110 opacity-0 blur-2xl' : 'scale-100 opacity-100'}
-              `}
-            >
-              <div className="text-center space-y-4 md:space-y-6">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-light tracking-tight leading-tight text-white drop-shadow-lg px-2">
-                  Intelligence bridge between <br />
-                  <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">biotech</span> and <span className="italic font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">social consumer products</span>,<br />
-                  <span className="italic font-black text-zinc-400">AI automation.</span>
-                </h2>
-
-                <div className="pt-6 md:pt-10 space-y-6 md:space-y-12">
-                  <div className="space-y-4 md:space-y-6">
-                    <p className="text-xs font-mono tracking-[0.4em] text-zinc-500 uppercase flex items-center justify-center gap-3">
-                      <ShieldCheck size={12} className="text-cyan-400" />
-                      Identify Yourself
-                    </p>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-0 md:px-2">
-                      <PersonaButton
-                        icon={<TrendingUp size={18} />}
-                        label="Investor"
-                        selected={selectedPersona === 'investor'}
-                        onClick={() => setSelectedPersona('investor')}
-                      />
-                      <PersonaButton
-                        icon={<FlaskConical size={18} />}
-                        label="Researcher"
-                        selected={selectedPersona === 'researcher'}
-                        onClick={() => setSelectedPersona('researcher')}
-                      />
-                      <PersonaButton
-                        icon={<Handshake size={18} />}
-                        label="Collaborator"
-                        selected={selectedPersona === 'collaborator'}
-                        onClick={() => setSelectedPersona('collaborator')}
-                      />
-                      <PersonaButton
-                        icon={<Eye size={18} />}
-                        label="Curious"
-                        selected={selectedPersona === 'curious'}
-                        onClick={() => setSelectedPersona('curious')}
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    disabled={!selectedPersona}
-                    onClick={() => handleLaunch(selectedPersona || 'curious')}
-                    className={`
-                      group relative px-12 md:px-16 py-4 md:py-5 rounded-full font-mono tracking-[0.8em] text-xs md:text-sm uppercase transition-all overflow-hidden border
-                      ${selectedPersona
-                        ? 'bg-zinc-100 border-zinc-100 text-black shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95'
-                        : 'bg-zinc-900/50 border-zinc-800 text-zinc-600 cursor-not-allowed'}
-                    `}
-                  >
-                    <span className="relative z-10 flex items-center justify-center gap-3">
-                      CLICK TO ENTER
-                      {selectedPersona && <ArrowRight size={14} className="animate-bounce-x" />}
-                    </span>
-                    {selectedPersona && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    )}
-                  </button>
+      <AnimatePresence mode="wait">
+        {launchState === 'launching' && (
+          <motion.div
+            key="syncing"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/80 backdrop-blur-3xl"
+          >
+            <div className="relative">
+              <div className="w-32 h-32 border-2 border-cyan-500/20 rounded-full animate-ping"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4">
+                <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse shadow-[0_0_15px_#fbbf24]"></div>
+                <div className="text-[10px] font-mono tracking-[1em] text-zinc-400 uppercase animate-pulse">
+                  Linking Pulse...
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        <div className="flex h-full w-full overflow-hidden animate-in zoom-in-95 duration-700">
 
-          {/* Glass Sidebar */}
-          <div className="hidden md:block h-full shrink-0">
-            <Sidebar
-              isOpen={sidebarOpen}
-              onClose={() => setSidebarOpen(false)}
-              onNavigate={handleNavigate}
-              onReset={handleReset}
-              activeSection={messages.length > 0 ? messages[messages.length - 1].component : undefined}
-            />
-          </div>
-
-          {/* Mobile Sidebar (Absolute) */}
-          <div className="md:hidden">
-            <Sidebar
-              isOpen={sidebarOpen}
-              onClose={() => setSidebarOpen(false)}
-              onNavigate={handleNavigate}
-              onReset={handleReset}
-              activeSection={messages.length > 0 ? messages[messages.length - 1].component : undefined}
-            />
-          </div>
-
-          {/* Glass Main Content */}
-          <main className="flex-1 relative flex flex-col h-full overflow-hidden glass-panel border-0 md:border-l-0 border-white/5 bg-black/20">
-            {/* Desktop Status Bar */}
-            <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 md:px-8 bg-zinc-900/50 backdrop-blur-md shrink-0">
-              <div className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse shadow-[0_0_10px_#fbbf24]" />
-                <span className="text-xs font-mono font-bold text-zinc-300 tracking-[0.4em] uppercase">Identity Link: Gobinath // Active</span>
-              </div>
-              <button onClick={() => setSidebarOpen(true)} className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"><Menu size={20} /></button>
-            </div>
-
-            {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto pb-52 md:pb-64 px-4 md:px-0 scroll-smooth">
-              <div className="max-w-4xl mx-auto w-full pt-8">
-                {messages.map((msg, index) => (
-                  <MessageBubble key={index} message={msg} />
+            <div className="mt-12 space-y-2 text-center overflow-hidden h-6 text-[8px] font-mono text-cyan-500/40 uppercase">
+              <motion.div
+                animate={{ y: [0, -100] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              >
+                {[...Array(10)].map((_, i) => (
+                  <div key={i}>ID: {Math.random().toString(36).substring(7)} // SYNCING_NODE_{i}</div>
                 ))}
-                {isTyping && (
-                  <div className="w-full p-6 md:p-10 animate-in fade-in">
-                    <div className="flex gap-4 md:gap-6 max-w-3xl mx-auto">
-                      <div className="w-10 h-10 glass-card rounded-xl flex items-center justify-center shrink-0 border border-white/10">
-                        <Sparkles size={18} className="text-amber-400 animate-pulse" />
-                      </div>
-                      <span className="text-zinc-500 text-sm font-mono tracking-widest pt-2 uppercase">Syncing Archive...</span>
-                    </div>
-                  </div>
-                )}
-                <div ref={scrollRef} className="h-4" />
-              </div>
+              </motion.div>
             </div>
+          </motion.div>
+        )}
 
-            {/* Scroll To Top Button */}
-            <button
-              onClick={() => scrollRef.current?.scrollIntoView({ behavior: 'smooth' })}
-              className="fixed bottom-24 right-6 p-3 bg-zinc-800/80 backdrop-blur text-zinc-400 hover:text-white rounded-full border border-white/10 shadow-xl transition-all hover:scale-110 active:scale-90 z-40 md:hidden"
-            >
-              <ArrowRight size={20} className="-rotate-90" />
-            </button>
-
-            {/* Floating Glass Input */}
-            <div className="absolute bottom-0 left-0 w-full pt-6 pb-5 md:pb-6 px-4 md:px-8 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent z-10 backdrop-blur-xl">
-              <div className="max-w-3xl mx-auto">
-                <ChatInput onSend={handleUserMessage} disabled={isTyping} />
-              </div>
-            </div>
-          </main>
-        </div>
-      )}
+        {launchState === 'desktop' ? (
+          <motion.div
+            key="launcher"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: 'blur(30px)' }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="h-full w-full"
+          >
+            <Launcher
+              launchState={launchState}
+              selectedPersona={selectedPersona}
+              setSelectedPersona={setSelectedPersona}
+              handleLaunch={handleLaunch}
+              currentTime={currentTime}
+            />
+          </motion.div>
+        ) : launchState === 'running' && (
+          <motion.div
+            key="os-interface"
+            initial={{ opacity: 0, scale: 1.05, filter: 'blur(40px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="h-full w-full"
+          >
+            <OSInterface
+              sidebarOpen={sidebarOpen}
+              setSidebarOpen={setSidebarOpen}
+              handleNavigate={handleNavigate}
+              handleReset={handleReset}
+              messages={messages}
+              isTyping={isTyping}
+              handleUserMessage={handleUserMessage}
+              scrollRef={scrollRef}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
-
-const PersonaButton = ({ icon, label, onClick, selected }: { icon: React.ReactNode, label: string, onClick: () => void, selected: boolean }) => (
-  <button
-    onClick={onClick}
-    className={`
-      group flex flex-col items-center gap-3 md:gap-4 px-4 md:px-6 py-4 md:py-6 rounded-2xl md:rounded-3xl transition-all duration-300 border relative overflow-hidden
-      ${selected
-        ? 'glass-panel bg-white/10 border-amber-500/50 shadow-[0_0_30px_rgba(251,191,36,0.15)] scale-105'
-        : 'glass-card hover:bg-white/5 hover:border-white/20 scale-100'}
-    `}
-  >
-    {selected && (
-      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-amber-400 rounded-full shadow-[0_0_8px_#fbbf24] animate-pulse"></div>
-    )}
-    <div className={`
-      p-2.5 md:p-3.5 rounded-xl md:rounded-2xl transition-all duration-300
-      ${selected ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20' : 'bg-white/5 text-zinc-400 group-hover:text-white'}
-    `}>
-      {icon}
-    </div>
-    <span className={`
-      text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] transition-colors
-      ${selected ? 'text-amber-300 font-bold' : 'text-zinc-600 group-hover:text-zinc-300'}
-    `}>
-      {label}
-    </span>
-  </button>
-);
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Bot, User } from 'lucide-react';
-import { MessageType } from '../types';
+import { MessageType } from '../types/app';
 import { AboutSection, ProjectsSection, ExperienceSection, SkillsSection, PublicationsSection, ContactSection, EducationSection, MediaSection, GallerySection, PatentsSection, RecentLearningSection, FavoriteToolsSection, BioDigitalCore } from './ContentRenderer';
 import { PROFILE_IMAGE } from '../constants';
 

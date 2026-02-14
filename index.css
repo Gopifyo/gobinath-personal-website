@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --app-height: 100%;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+    }
+
+    body {
+        @apply font-sans text-zinc-200 antialiased;
+        background:
+            radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.05), transparent 40%),
+            radial-gradient(circle at 0% 100%, rgba(245, 158, 11, 0.03), transparent 40%),
+            #020617;
+        background-attachment: fixed;
+    }
+
+    #root {
+        @apply h-full w-full flex flex-col;
+        height: 100dvh;
+    }
+}
+
+@layer components {
+    .glass-panel {
+        @apply bg-zinc-900/60 backdrop-blur-[40px] border border-white/10;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .glass-card {
+        @apply bg-zinc-800/40 backdrop-blur-[20px] border border-white/5 transition-all;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .glass-card:hover {
+        @apply bg-zinc-700/50 border-white/20;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@layer utilities {
+    .animate-bounce-x {
+        animation: bounce-x 1s infinite;
+    }
+
+    .animate-scan {
+        animation: scan 3s linear infinite;
+    }
+
+    .animate-neural-pulse {
+        animation: neural-pulse 4s ease-in-out infinite;
+    }
+
+    .animate-glitch-text {
+        animation: glitch-text 2s step-end infinite;
+    }
+}
+
+@keyframes scan {
+
+    0%,
+    100% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    5%,
+    95% {
+        opacity: 1;
+    }
+
+    50% {
+        top: 100%;
+    }
+}
+
+@keyframes neural-pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.2;
+        filter: blur(10px);
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+        filter: blur(20px);
+    }
+}
+
+@keyframes glitch-text {
+    0% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+
+    20% {
+        transform: translate(-1px, 1px);
+        text-shadow: 1px 0 #06b6d4, -1px 0 #f59e0b;
+    }
+
+    40% {
+        transform: translate(1px, -1px);
+        text-shadow: -1px 0 #06b6d4, 1px 0 #f59e0b;
+    }
+
+    60% {
+        transform: translate(-1px, -1px);
+        text-shadow: 1px 0 #06b6d4, -1px 0 #f59e0b;
+    }
+
+    80% {
+        transform: translate(1px, 1px);
+        text-shadow: -1px 0 #06b6d4, 1px 0 #f59e0b;
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+}
+
+::selection {
+    @apply bg-amber-500/20 text-white;
+}
