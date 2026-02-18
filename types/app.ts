@@ -40,7 +40,9 @@ export interface Project {
     description: string;
     tags: string[];
     type: 'AI' | 'Mobile' | 'BioTech' | 'Research';
+    imageUrl?: string;
     link?: string;
+    files?: { name: string; description: string }[];
 }
 
 export interface MediaItem {

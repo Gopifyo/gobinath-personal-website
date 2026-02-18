@@ -24,14 +24,14 @@ export const PROJECTS: Project[] = [
     description: "A futuristic operating system for nightlife, integrating social dynamics, real-time venue vibes, and seamless interactions.",
     tags: ["Nightlife Tech", "Real-time", "Social OS"],
     type: "AI",
-    link: "https://github.com/gobinath-c/antigravity" // Placeholder link
+    link: "https://antigravity-ten-beta.vercel.app/"
   },
   {
     title: "CLOS-social gathering",
     description: "A next-gen social gathering platform focused on bringing people together through curated events and intelligent matching.",
     tags: ["Social", "Events", "Community"],
     type: "Mobile",
-    link: "https://github.com/gobinath-c/clos" // Placeholder link
+    link: "https://clos-beta.vercel.app/"
   },
   {
     title: "3D Bioprinting of Cardiac & Muscle Tissue",
@@ -46,6 +46,20 @@ export const PROJECTS: Project[] = [
     tags: ["Research", "Bioengineering", "Publications"],
     type: "Research",
     link: "#"
+  },
+  {
+    title: "R Voice AI Agent",
+    description: "This agent allows you to control RStudio using your voice. It captures your speech, converts it to R code using a local LLM (Ollama), and executes it in your R console.",
+    tags: ["RStudio", "Voice Control", "LLM", "Ollama"],
+    type: "AI",
+    imageUrl: "gallery/r-voice-agent.png",
+    link: "#",
+    files: [
+      { name: "gui_app.py", description: "The Graphical User Interface (Speech + Text)." },
+      { name: "app.py", description: "(Optional) The original terminal-only version." },
+      { name: "r_listener.R", description: "The R-side listener script." },
+      { name: "bridge.R", description: "Temporary file used to pass commands." }
+    ]
   }
 ];
 

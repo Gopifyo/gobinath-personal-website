@@ -181,8 +181,21 @@ export const ProjectsSection = () => (
   <div className="space-y-12 mt-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {PROJECTS.map((project, i) => (
-        <div key={i} className="group relative glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 hover:border-white/20 transition-all duration-500 flex flex-col h-full shadow-2xl border border-white/10">
-          <div className="flex justify-between items-start mb-10">
+        <div key={i} className="group relative glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 hover:bg-white/5 hover:border-white/20 transition-all duration-500 flex flex-col h-full shadow-2xl border border-white/10 overflow-hidden">
+
+          {/* Optional Project Image */}
+          {project.imageUrl && (
+            <div className="relative h-48 w-full mb-8 rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale-[20%] group-hover:grayscale-0"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          <div className="flex justify-between items-start mb-6">
             <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950/30 px-4 py-2 rounded-xl border border-cyan-900/50 uppercase tracking-[0.2em]">{project.type}</span>
             {project.link && (
               <a href={project.link} target="_blank" className="text-zinc-500 hover:text-white transition-all transform hover:rotate-12">
@@ -191,7 +204,25 @@ export const ProjectsSection = () => (
             )}
           </div>
           <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 group-hover:text-cyan-400 transition-colors leading-tight">{project.title}</h3>
-          <p className="text-lg text-zinc-400 mb-10 leading-relaxed font-light flex-1">{project.description}</p>
+
+          <div className="flex-1 mb-10">
+            <p className="text-lg text-zinc-400 leading-relaxed font-light mb-6">{project.description}</p>
+
+            {project.files && (
+              <div className="bg-black/20 rounded-xl p-4 border border-white/5 space-y-2">
+                <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-3 border-b border-white/5 pb-2">Core Architecture</p>
+                <div className="space-y-2">
+                  {project.files.map((file, idx) => (
+                    <div key={idx} className="flex items-start gap-3 text-sm">
+                      <span className="font-mono text-cyan-400 shrink-0">{file.name}</span>
+                      <span className="text-zinc-500 font-light text-xs mt-0.5">// {file.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="flex flex-wrap gap-3 mt-auto">
             {project.tags.map((tag: string) => (
               <span key={tag} className="text-[10px] bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-zinc-500 font-mono tracking-wider uppercase group-hover:text-white transition-colors shadow-sm">
