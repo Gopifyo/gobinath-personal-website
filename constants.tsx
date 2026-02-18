@@ -49,8 +49,8 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "R Voice AI Agent",
-    description: "This agent allows you to control RStudio using your voice. It captures your speech, converts it to R code using a local LLM (Ollama), and executes it in your R console.",
-    tags: ["RStudio", "Voice Control", "LLM", "Ollama"],
+    description: "This agent allows you to control RStudio using your voice. It leverages local LLMs via Ollama (Qwen 2.5 Coder, Llama 3.2, Mistral) and optionally integrates with the Gemini API for enhanced code generation.",
+    tags: ["RStudio", "Voice Control", "Qwen 2.5", "Llama 3.2", "Mistral", "Gemini API"],
     type: "AI",
     imageUrl: "gallery/r-voice-agent.png",
     link: "#",
@@ -460,5 +460,12 @@ export const GALLERY: GalleryItem[] = [
     category: "Conference",
     imageUrl: "gallery/Bioengineering Symposium-363.jpg",
     description: "Discussing the future of biomaterials."
+  },
+  {
+    id: "g5",
+    title: "R Voice AI Agent",
+    category: "Tech",
+    imageUrl: "gallery/r-voice-agent.png",
+    description: "Voice control for RStudio using Qwen 2.5, Llama 3.2, Mistral, and Gemini."
   }
 ];
