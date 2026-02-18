@@ -60,6 +60,13 @@ export const PROJECTS: Project[] = [
       { name: "r_listener.R", description: "The R-side listener script." },
       { name: "bridge.R", description: "Temporary file used to pass commands." }
     ]
+  },
+  {
+    title: "3D MicroCT Cardiac Reconstruction",
+    description: "Pioneered non-destructive 3D reconstruction of human left ventricular tissue using MicroCT imaging. Quantified vascular architecture and fibrosis distribution to reveal structural remodeling differences between diabetic and non-diabetic hearts.",
+    tags: ["MicroCT", "3D Modeling", "Cardiology", "Fibrosis Analysis"],
+    type: "Research",
+    link: "#"
   }
 ];
 
