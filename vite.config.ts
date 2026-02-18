@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 'base' property for GitHub Pages deployment.
-  base: '/gobinath-personal-website/',
+  // Reverting to default base path '/' for Vercel stability.
+  // base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

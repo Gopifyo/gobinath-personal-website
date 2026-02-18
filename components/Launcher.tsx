@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wifi, Battery, ShieldCheck, ArrowRight, TrendingUp, FlaskConical, Handshake, Eye } from 'lucide-react';
 import PersonaButton from './PersonaButton';
+import { DecryptedText } from './DecryptedText';
 
 interface LauncherProps {
     launchState: 'desktop' | 'launching' | 'running';
@@ -9,7 +10,6 @@ interface LauncherProps {
     handleLaunch: (persona?: string) => void;
     currentTime: Date;
 }
-import { DecryptedText } from './DecryptedText';
 
 const Launcher: React.FC<LauncherProps> = ({
     launchState,

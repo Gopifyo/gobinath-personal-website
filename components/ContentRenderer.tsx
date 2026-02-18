@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PROJECTS, EXPERIENCES, SKILLS, PUBLICATIONS, EDUCATION, MEDIA, SOCIAL_LINKS, PROFILE_IMAGE, GALLERY, PATENTS } from '../constants';
-import { ExternalLink, Github, Linkedin, MapPin, ChevronRight, FileText, ArrowUpRight, Newspaper, X, Eye, BookOpen, ChevronLeft, ChevronRight as ChevronRightIcon, Download, ZoomIn, ZoomOut, User, Maximize2, ImageOff, Bot, Mail, ShieldCheck, Sparkles, Cpu, Camera, Database, Zap, Code2, Layout, Box } from 'lucide-react';
+import { ExternalLink, Github, Linkedin, MapPin, FileText, ArrowUpRight, Newspaper, X, Eye, BookOpen, ChevronLeft, ChevronRight as ChevronRightIcon, Download, ZoomIn, ZoomOut, User, Maximize2, ImageOff, Bot, Mail, ShieldCheck, Sparkles, Cpu, Camera, Database, Zap, Code2, Layout, Box } from 'lucide-react';
 import { MediaItem, GalleryItem } from '../types/app';
 import { DigitalCard } from './DigitalCard';
 
